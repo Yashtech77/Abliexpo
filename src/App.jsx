@@ -1,9 +1,11 @@
 import { useState } from 'react'
 import AuthModal from './components/AuthModal'
+import ContactPage from './components/ContactPage'
 import HeroPage from './components/HeroPage'
 
 function App() {
   const [authView, setAuthView] = useState(null)
+  const [currentPage, setCurrentPage] = useState('home')
 
   const openAuthView = (view) => {
     setAuthView(view)
@@ -21,7 +23,19 @@ function App() {
 
   return (
     <>
-      <HeroPage onOpenAuth={openAuthView} />
+      {currentPage === 'contact' ? (
+        <ContactPage
+          currentPage={currentPage}
+          onNavigate={setCurrentPage}
+          onOpenAuth={openAuthView}
+        />
+      ) : (
+        <HeroPage
+          currentPage={currentPage}
+          onNavigate={setCurrentPage}
+          onOpenAuth={openAuthView}
+        />
+      )}
       <AuthModal
         authView={authView}
         onClose={closeAuthView}

@@ -1,7 +1,6 @@
 export const navigationItems = [
-  { label: 'Home', isActive: true },
-  { label: 'About', isActive: false },
-  { label: 'Contact Us', isActive: false },
+  { label: 'Home', page: 'home' },
+  { label: 'Contact Us', page: 'contact' },
 ]
 
 export const authActions = [
@@ -90,6 +89,48 @@ export const heroContent = {
   title: 'Your Gateway to the Global Market',
   subtitle: 'Virtual world of Exhibitions. Flash sale. Webinars.',
   ctaLabel: 'Register',
+}
+
+export const contactPageContent = {
+  eyebrow: 'Contact Us',
+  title: "Let's plan your next virtual expo",
+  description:
+    'Share your goals, questions, or partnership ideas and our team will help you get started with the right setup.',
+  details: [
+    {
+      label: 'Email',
+      value: 'hello@abliexpo.com',
+    },
+    {
+      label: 'Phone',
+      value: '+91 98765 43210',
+    },
+    {
+      label: 'Office',
+      value: 'Mumbai, India',
+    },
+  ],
+  formFields: [
+    { id: 'name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
+    {
+      id: 'email',
+      label: 'Email Address',
+      type: 'email',
+      placeholder: 'name@company.com',
+    },
+    {
+      id: 'company',
+      label: 'Company',
+      type: 'text',
+      placeholder: 'Your company',
+    },
+  ],
+  messageField: {
+    id: 'message',
+    label: 'How can we help?',
+    placeholder: 'Tell us what you are looking for.',
+  },
+  submitLabel: 'Send Message',
 }
 
 export const sliderControls = [
