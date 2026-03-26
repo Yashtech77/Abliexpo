@@ -1,21 +1,21 @@
-import { useEffect } from 'react'
+import { useEffect, useState } from "react";
 import {
   CloseIcon,
   FacebookIcon,
   GoogleIcon,
   LinkedInIcon,
   SelectArrowIcon,
-} from './Icons'
-import { authModalContent, socialProviders } from './landingPageData'
+} from "./Icons";
+import { authModalContent, socialProviders } from "./landingPageData";
 
 const socialIcons = {
   facebook: FacebookIcon,
   google: GoogleIcon,
   linkedin: LinkedInIcon,
-}
+};
 
 function SocialAuthButton({ provider }) {
-  const Icon = socialIcons[provider.id]
+  const Icon = socialIcons[provider.id];
 
   return (
     <button
@@ -25,7 +25,7 @@ function SocialAuthButton({ provider }) {
       <Icon />
       <span>{provider.label}</span>
     </button>
-  )
+  );
 }
 
 function AuthField({ field }) {
@@ -40,10 +40,10 @@ function AuthField({ field }) {
         className="h-16 w-full border border-[#d7dfea] bg-[#f7f9fd] px-4 text-[1rem] text-[#1f2733] placeholder:text-[#b9c0cb] focus:border-[#5b7fcf] focus:bg-white focus:outline-none"
       />
     </label>
-  )
+  );
 }
 
-function LoginForm({ content, onToggleView, onSubmit }) {
+function LoginForm({ content, onToggleView, onSubmit, otpSent, otp, setOtp }) {
   return (
     <>
       <div className={`${content.bodySpacingClassName} space-y-6`}>
@@ -61,20 +61,43 @@ function LoginForm({ content, onToggleView, onSubmit }) {
       </div>
 
       <form className="space-y-5" onSubmit={onSubmit}>
-        {content.fields.map((field) => (
-          <AuthField key={field.id} field={field} />
-        ))}
+        {!otpSent ? (
+          content.fields.map((field) => (
+            <AuthField key={field.id} field={field} />
+          ))
+        ) : (
+          <>
+            <input
+              type="text"
+              placeholder="Enter OTP"
+              value={otp}
+              onChange={(e) => setOtp(e.target.value)}
+              className="h-16 w-full border border-[#d7dfea] px-4"
+            />
+          </>
+        )}
 
         <button
           type="submit"
           className="mt-4 h-[4.1rem] w-full rounded-full bg-[#5b7fcf] text-[1rem] font-semibold text-white shadow-[0_18px_30px_rgba(65,101,178,0.28)] transition hover:bg-[#6789d7] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#5b7fcf]"
         >
-          {content.submitLabel}
+          {!otpSent ? "Send OTP" : "Login"}
         </button>
       </form>
+      {otpSent && (
+        <div className="text-center mt-3">
+          <button
+            type="button"
+            onClick={() => alert("OTP Resent ✅")}
+            className="text-blue-500 font-medium"
+          >
+            Resend OTP
+          </button>
+        </div>
+      )}
 
       <p className="mt-10 text-center text-[1rem] text-[#8391aa]">
-        {content.footerPrefix}{' '}
+        {content.footerPrefix}{" "}
         <button
           type="button"
           onClick={onToggleView}
@@ -84,7 +107,7 @@ function LoginForm({ content, onToggleView, onSubmit }) {
         </button>
       </p>
     </>
-  )
+  );
 }
 
 function RegisterForm({ content, onToggleView, onSubmit }) {
@@ -96,7 +119,10 @@ function RegisterForm({ content, onToggleView, onSubmit }) {
         </p>
       ) : null}
 
-      <form className={`${content.bodySpacingClassName} space-y-5`} onSubmit={onSubmit}>
+      <form
+        className={`${content.bodySpacingClassName} space-y-5`}
+        onSubmit={onSubmit}
+      >
         {content.fields.slice(0, 1).map((field) => (
           <AuthField key={field.id} field={field} />
         ))}
@@ -132,7 +158,7 @@ function RegisterForm({ content, onToggleView, onSubmit }) {
             className="h-[1.1rem] w-[1.1rem] rounded border border-[#6f7680] text-[#5b7fcf] focus:ring-2 focus:ring-[#5b7fcf]"
           />
           <span>
-            {content.termsLabel}{' '}
+            {content.termsLabel}{" "}
             <button
               type="button"
               className="text-[#4f78c7] underline underline-offset-2"
@@ -157,9 +183,7 @@ function RegisterForm({ content, onToggleView, onSubmit }) {
             </div>
 
             <div className="min-w-[4.5rem] text-right text-[0.78rem] leading-tight text-[#6b7280]">
-              <div className="text-[2.2rem] leading-none text-[#4d7bd4]">
-                ↻
-              </div>
+              <div className="text-[2.2rem] leading-none text-[#4d7bd4]">↻</div>
               <p className="font-medium uppercase tracking-[0.04em]">
                 reCAPTCHA
               </p>
@@ -177,7 +201,7 @@ function RegisterForm({ content, onToggleView, onSubmit }) {
       </form>
 
       <p className="mt-10 text-center text-[1rem] text-[#8391aa]">
-        {content.footerPrefix}{' '}
+        {content.footerPrefix}{" "}
         <button
           type="button"
           onClick={onToggleView}
@@ -187,42 +211,51 @@ function RegisterForm({ content, onToggleView, onSubmit }) {
         </button>
       </p>
     </>
-  )
+  );
 }
 
-function AuthModal({ authView, onClose, onToggleView }) {
+function AuthModal({ authView, onClose, onToggleView, onLoginSuccess }) {
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState("");
   useEffect(() => {
     if (!authView) {
-      document.body.style.overflow = ''
-      return undefined
+      document.body.style.overflow = "";
+      return undefined;
     }
 
-    const previousOverflow = document.body.style.overflow
-    document.body.style.overflow = 'hidden'
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
 
     const handleKeyDown = (event) => {
-      if (event.key === 'Escape') {
-        onClose()
+      if (event.key === "Escape") {
+        onClose();
       }
-    }
+    };
 
-    window.addEventListener('keydown', handleKeyDown)
+    window.addEventListener("keydown", handleKeyDown);
 
     return () => {
-      document.body.style.overflow = previousOverflow
-      window.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [authView, onClose])
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [authView, onClose]);
 
   if (!authView) {
-    return null
+    return null;
   }
 
-  const content = authModalContent[authView]
+  const content = authModalContent[authView];
 
   const handleSubmit = (event) => {
-    event.preventDefault()
-  }
+    event.preventDefault();
+    if (!otpSent) {
+      alert("OTP Sent Successfully ✅");
+      setOtpSent(true);
+    } else {
+      alert("Login Successful ✅");
+      onLoginSuccess();
+    }
+  };
 
   return (
     <div
@@ -256,7 +289,7 @@ function AuthModal({ authView, onClose, onToggleView }) {
             {content.title}
           </h2>
 
-          {authView === 'register' ? (
+          {authView === "register" ? (
             <RegisterForm
               content={content}
               onToggleView={onToggleView}
@@ -267,12 +300,15 @@ function AuthModal({ authView, onClose, onToggleView }) {
               content={content}
               onToggleView={onToggleView}
               onSubmit={handleSubmit}
+              otpSent={otpSent}
+              otp={otp}
+              setOtp={setOtp}
             />
           )}
         </section>
       </div>
     </div>
-  )
+  );
 }
 
-export default AuthModal
+export default AuthModal;
