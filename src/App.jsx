@@ -2,7 +2,8 @@ import { useState } from 'react'
 import AuthModal from './components/AuthModal'
 import ContactPage from './components/ContactPage'
 import HeroPage from './components/HeroPage'
-import ExhibitionsPage from "./components/ExhibitionsPage"
+import ExhibitionsPage from "./sections/ExhibitionsPage"
+import HomePage from "./pages/HomePage";
 
 function App() {
   const [authView, setAuthView] = useState(null)
@@ -39,17 +40,21 @@ function App() {
         onOpenAuth={openAuthView}
         isLoggedIn={isLoggedIn}
       />
-    ) 
-      
-      
-      : (
+    ) : currentPage === 'home' ? (
+  <HomePage
+    currentPage={currentPage}
+    onNavigate={setCurrentPage}
+    onOpenAuth={openAuthView}
+    isLoggedIn={isLoggedIn}
+  />
+) : (
         <HeroPage
           currentPage={currentPage}
           onNavigate={setCurrentPage}
           onOpenAuth={openAuthView}
           isLoggedIn={isLoggedIn}
         />
-      )}
+      ) }
       <AuthModal
         authView={authView}
         onClose={closeAuthView}

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ExhibitionCard from "./ExhibitionCard";
-import Navbar from "./Navbar";
+import Navbar from "../components/Navbar";
 
 function ExhibitionsPage({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
   const [events, setEvents] = useState([]);
@@ -141,22 +141,6 @@ function ExhibitionsPage({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
       },
       {
         id: 16,
-        title: "Ayush Expo",
-        date: "03 Jul 2025 onwards",
-        stalls: 8,
-        image: "https://via.placeholder.com/300",
-        description: "Wellness Goes Digital...",
-      },
-      {
-        id: 17,
-        title: "Ayush Expo",
-        date: "03 Jul 2025 onwards",
-        stalls: 8,
-        image: "https://via.placeholder.com/300",
-        description: "Wellness Goes Digital...",
-      },
-      {
-        id: 18,
         title: "Ayush Expo",
         date: "03 Jul 2025 onwards",
         stalls: 8,

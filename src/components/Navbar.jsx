@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react";
-
 import { LoginIcon } from "./Icons";
 import { authActions, navigationItems } from "./landingPageData";
 

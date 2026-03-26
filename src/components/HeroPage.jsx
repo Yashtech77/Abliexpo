@@ -18,6 +18,7 @@ function HeroPage({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
         isLoggedIn={isLoggedIn}
       />
       <HeroContent onOpenAuth={onOpenAuth} />
+      
     </main>
   )
 }
