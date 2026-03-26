@@ -1,7 +1,7 @@
 import Navbar from './Navbar'
 import { contactPageContent } from './landingPageData'
 
-function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
+function ContactPage({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#071522] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(30,77,124,0.35),transparent_36%),linear-gradient(135deg,rgba(4,10,18,0.98),rgba(7,21,34,0.92)_52%,rgba(90,64,34,0.42))]" />
@@ -13,6 +13,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
         currentPage={currentPage}
         onNavigate={onNavigate}
         onOpenAuth={onOpenAuth}
+        isLoggedIn={isLoggedIn}
       />
 
       <section className="relative z-10 px-4 py-10 sm:px-6 sm:py-14 lg:px-16 lg:py-16">

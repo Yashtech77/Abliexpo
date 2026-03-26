@@ -5,13 +5,15 @@ import GlobalPresence from "../sections/GlobalPresence";
 import FeaturedExhibitions from "../sections/FeaturedExhibitions";
 import Participants from "../sections/Participants";
 import Footer from "../sections/Footer";
-function HomePage({ currentPage, onNavigate, onOpenAuth }) {
+function HomePage({ currentPage, onNavigate, onOpenAuth , isLoggedIn }) {
   return (
     <>
       <HeroPage
         currentPage={currentPage}
         onNavigate={onNavigate}
         onOpenAuth={onOpenAuth}
+        isLoggedIn={isLoggedIn}
+
       />
 
       <OngoingExhibitions />
