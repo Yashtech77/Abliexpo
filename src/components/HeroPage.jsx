@@ -1,7 +1,7 @@
 import HeroContent from './HeroContent'
 import Navbar from './Navbar'
 
-function HeroPage({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
+function HeroPage({ currentPage, onNavigate, isLoggedIn }) {
   return (
     <main className="relative min-h-screen overflow-hidden bg-[#071522] text-white">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(25,57,95,0.3),transparent_34%),linear-gradient(90deg,rgba(2,10,16,0.96),rgba(8,17,25,0.8)_72%,rgba(64,49,34,0.35))]" />
@@ -14,11 +14,10 @@ function HeroPage({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
       <Navbar
         currentPage={currentPage}
         onNavigate={onNavigate}
-        onOpenAuth={onOpenAuth}
+       
         isLoggedIn={isLoggedIn}
       />
-      <HeroContent onOpenAuth={onOpenAuth} />
-      
+     <HeroContent onNavigate={onNavigate} />
     </main>
   )
 }

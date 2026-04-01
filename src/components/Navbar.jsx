@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { LoginIcon } from "./Icons";
 import { authActions, navigationItems } from "./landingPageData";
 
-function Navbar({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
+function Navbar({ currentPage, onNavigate,  isLoggedIn }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const dropdownRef = useRef(null);
 
@@ -67,7 +67,7 @@ function Navbar({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
                 <button
                   key={label}
                   type="button"
-                  onClick={() => onOpenAuth(label.toLowerCase())}
+                  onClick={() => onNavigate("login")}
                   className={
                     isPrimary
                       ? "flex items-center gap-3 font-semibold text-[#f4d600]"
@@ -133,7 +133,7 @@ function Navbar({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
                 <button
                   key={label}
                   type="button"
-                  onClick={() => onOpenAuth(label.toLowerCase())}
+                 onClick={() => onNavigate("login")}
                   className={
                     isPrimary
                       ? "rounded-full bg-[#f4d600] px-5 py-2.5 font-semibold text-[#071522] transition hover:bg-[#ffe75a]"

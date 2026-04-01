@@ -1,73 +1,62 @@
-import { useState } from 'react'
-import AuthModal from './components/AuthModal'
-import ContactPage from './components/ContactPage'
-import HeroPage from './components/HeroPage'
-import ExhibitionsPage from "./sections/ExhibitionsPage"
+import { useState } from "react";
+import ContactPage from "./components/ContactPage";
+import HeroPage from "./components/HeroPage";
+import ExhibitionsPage from "./sections/ExhibitionsPage";
 import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import OtpPage from "./pages/OtpPage";
 
 function App() {
-  const [authView, setAuthView] = useState(null)
-  const [currentPage, setCurrentPage] = useState('home')
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
-
-  const openAuthView = (view) => {
-    setAuthView(view)
-  }
-
-  const closeAuthView = () => {
-    setAuthView(null)
-  }
-
-  const toggleAuthView = () => {
-    setAuthView((currentView) =>
-      currentView === 'login' ? 'register' : 'login',
-    )
-  }
+  const [currentPage, setCurrentPage] = useState("home"); 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   return (
     <>
-      {currentPage === 'contact' ? (
+      {currentPage === "login" && (
+        <LoginPage
+         onNavigate={setCurrentPage} 
+          onLoginSuccess={() => {
+            setIsLoggedIn(true);
+            setCurrentPage("home");
+          }}
+        />
+      )}
+      {currentPage === "otp" && <OtpPage />}
+      {currentPage === "home" && (
+        <HomePage
+          currentPage={currentPage}
+          onNavigate={setCurrentPage} // 👈 important
+          isLoggedIn={isLoggedIn}
+        />
+      )}
+
+      {currentPage === "contact" && (
         <ContactPage
           currentPage={currentPage}
           onNavigate={setCurrentPage}
-          onOpenAuth={openAuthView}
           isLoggedIn={isLoggedIn}
         />
-      ) : currentPage === 'exhibitions' ? (  
-      <ExhibitionsPage
-        currentPage={currentPage}
-        onNavigate={setCurrentPage}
-        onOpenAuth={openAuthView}
-        isLoggedIn={isLoggedIn}
-      />
-    ) : currentPage === 'home' ? (
-  <HomePage
-    currentPage={currentPage}
-    onNavigate={setCurrentPage}
-    onOpenAuth={openAuthView}
-    isLoggedIn={isLoggedIn}
-  />
-) : (
+      )}
+
+      
+      {currentPage === "exhibitions" && (
+        <ExhibitionsPage
+          currentPage={currentPage}
+          onNavigate={setCurrentPage}
+          isLoggedIn={isLoggedIn}
+        />
+      )}
+
+    
+      {currentPage === "hero" && (
         <HeroPage
           currentPage={currentPage}
           onNavigate={setCurrentPage}
-          onOpenAuth={openAuthView}
           isLoggedIn={isLoggedIn}
         />
-      ) }
-      <AuthModal
-        authView={authView}
-        onClose={closeAuthView}
-        onToggleView={toggleAuthView}
-         onLoginSuccess={() => {
-    setIsLoggedIn(true)
-    setAuthView(null)
-    setCurrentPage('home')
-  }}
-        
-      />
+      )}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

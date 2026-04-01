@@ -2,7 +2,7 @@ import { Chevron, DownArrow } from './Icons'
 import { heroContent, sliderControls } from './landingPageData'
 import PreviewCard from './PreviewCard'
 
-function HeroContent({ onOpenAuth }) {
+function HeroContent({ onNavigate }) {
   return (
     <section className="relative z-10 flex min-h-[calc(100vh-89px)] items-center justify-center px-4 py-12 sm:px-6 sm:py-14 lg:px-16 lg:py-16">
       {sliderControls.map(({ direction, label, position }) => (
@@ -29,7 +29,7 @@ function HeroContent({ onOpenAuth }) {
 
         <button
           type="button"
-          onClick={() => onOpenAuth('register')}
+         onClick={() => onNavigate("register")}
           className="mt-10 rounded-full bg-[#5b7fcf] px-10 py-4 text-base font-semibold text-white shadow-[0_20px_40px_rgba(53,91,177,0.35)] transition hover:bg-[#6b8edf] sm:mt-16 sm:px-16 sm:py-5 sm:text-xl lg:mt-20"
         >
           {heroContent.ctaLabel}
