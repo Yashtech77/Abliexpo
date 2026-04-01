@@ -1,7 +1,7 @@
 import { contactPageContent } from '../data/siteContent'
 import PageShell from '../layout/PageShell'
 
-function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
+function ContactPage({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
   return (
     <PageShell
       background="contact"
