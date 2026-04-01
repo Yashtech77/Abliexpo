@@ -17,7 +17,7 @@ function PageShell({
   background = 'aurora',
   currentPage,
   onNavigate,
-  onOpenAuth,
+
   children,
 }) {
   const content = (
@@ -25,7 +25,6 @@ function PageShell({
       <Navbar
         currentPage={currentPage}
         onNavigate={onNavigate}
-        onOpenAuth={onOpenAuth}
         variant={background === 'contact' ? 'dark' : 'light'}
       />
       {children}
