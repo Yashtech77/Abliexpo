@@ -1,11 +1,13 @@
 export const navigationItems = [
   { label: 'Home', page: 'home' },
+  { label: 'Exhibitions', page: 'exhibitions' },
+  { label: 'About Us', page: 'about' },
   { label: 'Contact Us', page: 'contact' },
+  { label: 'Past Events', page: 'past-events' },
 ]
 
 export const authActions = [
-  { label: 'Login', isPrimary: true },
-  { label: 'Register', isPrimary: false },
+  { label: 'Get Started', action: 'register', isPrimary: true },
 ]
 
 export const authModalContent = {
@@ -76,20 +78,49 @@ export const socialProviders = [
   { id: 'linkedin', label: 'Continue with LinkedIn' },
 ]
 
-export const heroBackgroundLayers = [
-  'absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(25,57,95,0.3),_transparent_34%),linear-gradient(90deg,_rgba(2,10,16,0.96),_rgba(8,17,25,0.8)_72%,_rgba(64,49,34,0.35))]',
-  'absolute inset-y-0 left-1/2 w-[62rem] -translate-x-[58%] rounded-full bg-[radial-gradient(circle,_rgba(25,84,143,0.3)_0%,_rgba(4,13,22,0.94)_45%,_rgba(3,9,15,0)_68%)] blur-sm',
-  'absolute left-1/2 top-[8%] h-[72rem] w-[72rem] -translate-x-1/2 rounded-full border border-white/10 opacity-25',
-  'absolute left-[13%] top-[10%] h-[55rem] w-[55rem] rounded-full bg-[radial-gradient(circle,_rgba(119,186,255,0.12)_0%,_rgba(16,33,54,0.08)_34%,_transparent_65%)] blur-3xl',
-  'absolute inset-0 opacity-[0.14] [background-image:linear-gradient(rgba(255,255,255,0.18)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.18)_1px,transparent_1px)] [background-position:center] [background-size:130px_130px]',
-  'absolute inset-y-0 right-0 w-[22%] bg-[linear-gradient(90deg,rgba(7,21,34,0)_0%,rgba(114,86,58,0.22)_100%)]',
-]
-
-export const heroContent = {
-  title: 'Your Gateway to the Global Market',
-  subtitle: 'Virtual world of Exhibitions. Flash sale. Webinars.',
-  ctaLabel: 'Register',
+export const homeHeroContent = {
+  title: 'Bringing The World Market To Your Screen',
+  subtitle:
+    'Explore, engage, and experience exhibitions like never before. The future of global trade is editorial, immersive, and always within reach.',
+  ctaLabel: 'Get Started',
+  eyebrow: 'Trending Now',
+  visualBadge: 'Live keynote streaming',
 }
+
+export const homeShowcaseCards = [
+  {
+    title: 'Global Tech Summit',
+    date: 'October 12-14, 2024',
+    category: 'Tech - Innovation',
+    status: 'Live',
+    artClassName:
+      'bg-[linear-gradient(180deg,rgba(11,29,51,0.1),rgba(11,29,51,0.55)),radial-gradient(circle_at_72%_24%,rgba(255,208,171,0.55),transparent_24%),linear-gradient(135deg,#8ebfe0_0%,#244964_44%,#102234_100%)]',
+  },
+  {
+    title: 'Design Week Milano',
+    date: 'October 12-14, 2024',
+    category: 'Design - Interior',
+    status: 'Offline',
+    artClassName:
+      'bg-[linear-gradient(180deg,rgba(34,26,17,0.1),rgba(34,26,17,0.5)),radial-gradient(circle_at_50%_16%,rgba(255,246,227,0.5),transparent_18%),linear-gradient(135deg,#d8cab8_0%,#6d594a_42%,#221a13_100%)]',
+  },
+  {
+    title: 'Global Tech Summit',
+    date: 'October 12-14, 2024',
+    category: 'Tech - Innovation',
+    status: 'Live',
+    artClassName:
+      'bg-[linear-gradient(180deg,rgba(8,26,45,0.12),rgba(8,26,45,0.6)),radial-gradient(circle_at_68%_20%,rgba(255,205,166,0.5),transparent_22%),linear-gradient(135deg,#b2d4e8_0%,#345970_40%,#12273a_100%)]',
+  },
+  {
+    title: 'Auto-X Expo 2024',
+    date: 'October 12-14, 2024',
+    category: 'Auto - Cars',
+    status: 'Upcoming',
+    artClassName:
+      'bg-[linear-gradient(180deg,rgba(16,20,38,0.08),rgba(16,20,38,0.6)),radial-gradient(circle_at_24%_24%,rgba(255,65,104,0.6),transparent_24%),linear-gradient(135deg,#19263f_0%,#422f4d_36%,#101927_100%)]',
+  },
+]
 
 export const contactPageContent = {
   eyebrow: 'Contact Us',
@@ -99,7 +130,7 @@ export const contactPageContent = {
   details: [
     {
       label: 'Email',
-      value: 'hello@abliexpo.com',
+      value: 'hello@ekspansexpo.com',
     },
     {
       label: 'Phone',
@@ -132,11 +163,3 @@ export const contactPageContent = {
   },
   submitLabel: 'Send Message',
 }
-
-export const sliderControls = [
-  { direction: 'left', label: 'Previous slide', position: 'left-6' },
-  { direction: 'right', label: 'Next slide', position: 'right-6' },
-]
-
-export const previewCardOverlayClass =
-  'absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.12),rgba(0,0,0,0.15)),radial-gradient(circle_at_25%_20%,rgba(255,205,156,0.35),transparent_35%),linear-gradient(120deg,rgba(34,25,21,0.7),rgba(149,87,59,0.45))]'
