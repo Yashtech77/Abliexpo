@@ -88,7 +88,7 @@ export default function RegisterPage({ onNavigate }) {
             <div className="text-[10px]">RECAPTCHA</div>
           </div>
           <button
-            onClick={() => onNavigate("otp")}
+            onClick={() => onNavigate("register-otp")}
             className="h-[44px] rounded-[10px] bg-gradient-to-r from-[#0053DB] to-[#0048C1] text-white text-[14px] font-semibold shadow-[0_8px_15px_rgba(0,83,219,0.2)]"
           >
             Get OTP

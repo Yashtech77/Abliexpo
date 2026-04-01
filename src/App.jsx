@@ -7,7 +7,7 @@ import RegisterPage from "./pages/RegisterPage";
 import BasicDetailsPage from "./pages/BasicDetailsPage";
 import InterestsPage from "./pages/InterestsPage";
 import AllSetPage from "./pages/AllSetPage";
-
+import RegisterOtpPage from "./pages/RegisterOtpPage";
 function App() {
   const [authView, setAuthView] = useState(null)
   const [currentPage, setCurrentPage] = useState('home')
@@ -57,7 +57,10 @@ function App() {
       {currentPage === "otp" && (
         <OtpPage onNavigate={setCurrentPage} />
       )}
-
+      
+{currentPage === "register-otp" && (
+  <RegisterOtpPage onNavigate={setCurrentPage} />
+)}
       {currentPage === "interests" && (
         <InterestsPage onNavigate={setCurrentPage} />
       )}

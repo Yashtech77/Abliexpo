@@ -83,14 +83,19 @@ export default function AllSetPage({ onNavigate }) {
                   ))}
                 </div>
               </div>
+<button onClick={() => onNavigate("register")}
+            className="h-[56px] w-full rounded-[12px] bg-gradient-to-r from-[#0053DB] to-[#0048C1] text-[16px] font-bold text-[#F8F7FF] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1)] active:scale-[0.98] transition-transform">
+              Continue
+            </button>
 
             </div>
 
             <div className="flex items-start md:items-center gap-4 p-4 bg-[#F0F4F7] rounded-[16px]">
               <div className="w-[36px] h-[36px] md:w-[40px] md:h-[40px] bg-[#D9E4EA] rounded-full flex items-center justify-center">
                 <Info size={16} color="#566166" />
+                
               </div>
-
+              
               <p className="text-[12px] text-[#566166] leading-[18px]">
                 You can always update these preferences in your profile settings later.
               </p>

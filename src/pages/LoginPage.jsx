@@ -95,7 +95,8 @@ export default function Login({ onNavigate }) {
           </form>
 
           <p className="text-center text-[14px] text-[#566166]">
-            Don’t have an account? <button className="font-bold text-[#0053DB] hover:underline">Register Now</button>
+            Don’t have an account? <button  onClick={() => onNavigate("basic")}
+            className="font-bold text-[#0053DB] hover:underline">Register Now</button>
           </p>
 
         </div>
