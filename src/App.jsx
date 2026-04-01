@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import AuthModal from './components/AuthModal'
-import ContactPage from './components/ContactPage'
-import HeroPage from './components/HeroPage'
+import ContactPage from './pages/ContactPage'
+import HomePage from './pages/HomePage'
 
 function App() {
   const [authView, setAuthView] = useState(null)
@@ -30,7 +30,7 @@ function App() {
           onOpenAuth={openAuthView}
         />
       ) : (
-        <HeroPage
+        <HomePage
           currentPage={currentPage}
           onNavigate={setCurrentPage}
           onOpenAuth={openAuthView}

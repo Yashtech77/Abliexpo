@@ -138,3 +138,78 @@ export function SelectArrowIcon() {
     </svg>
   )
 }
+
+export function CalendarIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-4 w-4 stroke-current"
+      fill="none"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M7 3v3" />
+      <path d="M17 3v3" />
+      <path d="M4 9h16" />
+      <rect x="4" y="5" width="16" height="15" rx="2" />
+    </svg>
+  )
+}
+
+export function ShareIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-4.5 w-4.5 stroke-current"
+      fill="none"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <circle cx="18" cy="5" r="2.5" />
+      <circle cx="6" cy="12" r="2.5" />
+      <circle cx="18" cy="19" r="2.5" />
+      <path d="m8.2 10.9 7.4-4.2" />
+      <path d="m8.2 13.1 7.4 4.2" />
+    </svg>
+  )
+}
+
+export function VolumeIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-5 w-5 stroke-current"
+      fill="none"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 14h3l4 4V6L8 10H5z" />
+      <path d="M16 9.5a4 4 0 0 1 0 5" />
+      <path d="M18.5 7a7 7 0 0 1 0 10" />
+    </svg>
+  )
+}
+
+export function VolumeOffIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      viewBox="0 0 24 24"
+      className="h-5 w-5 stroke-current"
+      fill="none"
+      strokeWidth="1.8"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M5 14h3l4 4V6L8 10H5z" />
+      <path d="M16 9.5a4 4 0 0 1 0 5" />
+      <path d="M4 4 20 20" />
+    </svg>
+  )
+}

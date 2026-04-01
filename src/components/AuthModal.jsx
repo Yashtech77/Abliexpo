@@ -6,7 +6,7 @@ import {
   LinkedInIcon,
   SelectArrowIcon,
 } from './Icons'
-import { authModalContent, socialProviders } from './landingPageData'
+import { authModalContent, socialProviders } from '../data/siteContent'
 
 const socialIcons = {
   facebook: FacebookIcon,

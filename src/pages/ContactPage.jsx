@@ -1,20 +1,14 @@
-import Navbar from './Navbar'
-import { contactPageContent } from './landingPageData'
+import { contactPageContent } from '../data/siteContent'
+import PageShell from '../layout/PageShell'
 
 function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#071522] text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(30,77,124,0.35),transparent_36%),linear-gradient(135deg,rgba(4,10,18,0.98),rgba(7,21,34,0.92)_52%,rgba(90,64,34,0.42))]" />
-      <div className="absolute inset-y-0 right-[-18%] top-[4%] h-[26rem] w-[26rem] rounded-full bg-[radial-gradient(circle,_rgba(244,214,0,0.16)_0%,_rgba(244,214,0,0.02)_42%,_transparent_70%)] blur-3xl sm:right-[-10%] sm:top-[8%] sm:h-[36rem] sm:w-[36rem] lg:h-[44rem] lg:w-[44rem]" />
-      <div className="absolute left-[-10%] top-[22%] h-[22rem] w-[22rem] rounded-full bg-[radial-gradient(circle,_rgba(95,137,207,0.24)_0%,_transparent_68%)] blur-3xl sm:left-[-6%] sm:h-[28rem] sm:w-[28rem] lg:h-[34rem] lg:w-[34rem]" />
-      <div className="absolute inset-0 opacity-[0.12] [background-image:linear-gradient(rgba(255,255,255,0.16)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.16)_1px,transparent_1px)] [background-position:center] [background-size:90px_90px] sm:[background-size:110px_110px] lg:opacity-[0.14] lg:[background-size:120px_120px]" />
-
-      <Navbar
-        currentPage={currentPage}
-        onNavigate={onNavigate}
-        onOpenAuth={onOpenAuth}
-      />
-
+    <PageShell
+      background="contact"
+      currentPage={currentPage}
+      onNavigate={onNavigate}
+      onOpenAuth={onOpenAuth}
+    >
       <section className="relative z-10 px-4 py-10 sm:px-6 sm:py-14 lg:px-16 lg:py-16">
         <div className="mx-auto grid max-w-[1400px] gap-6 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
           <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:rounded-[2rem] sm:p-8 lg:p-12">
@@ -121,7 +115,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
           </div>
         </div>
       </section>
-    </main>
+    </PageShell>
   )
 }
 

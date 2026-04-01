@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@800&display=swap");
 @import "tailwindcss";
 
 :root {
@@ -31,4 +32,83 @@ a {
 
 button {
   font: inherit;
+}
+
+.font-manrope-display {
+  font-family: 'Manrope', Arial, Helvetica, sans-serif;
+}
+
+.wave-ribbon {
+  border-radius: 9999px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.08)),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.2), rgba(14, 165, 233, 0.52), rgba(3, 105, 161, 0.42));
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.56),
+    0 0 0 1px rgba(3, 105, 161, 0.24);
+  opacity: 0.95;
+  filter: blur(1px);
+  transform: rotate(-10deg);
+  will-change: transform, opacity;
+  animation: ribbon-drift 9s ease-in-out infinite alternate;
+}
+
+.wave-ribbon::before,
+.wave-ribbon::after {
+  content: "";
+  position: absolute;
+  inset: 1.2rem;
+  border-radius: inherit;
+}
+
+.wave-ribbon::before {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.65), rgba(255, 255, 255, 0));
+  opacity: 0.9;
+}
+
+.wave-ribbon::after {
+  inset: 2.6rem;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.38), rgba(125, 211, 252, 0.18), rgba(255, 255, 255, 0.04));
+  opacity: 0.9;
+}
+
+.wave-ribbon-1 {
+  opacity: 0.65;
+  animation-delay: -2s;
+}
+
+.wave-ribbon-2 {
+  opacity: 0.82;
+  animation-duration: 11s;
+}
+
+.wave-ribbon-3 {
+  opacity: 0.92;
+  animation-delay: -6s;
+}
+
+.wave-ribbon-4 {
+  opacity: 0.78;
+  animation-duration: 12s;
+  animation-delay: -3s;
+}
+
+.wave-ribbon-5 {
+  opacity: 0.7;
+  animation-duration: 10s;
+  animation-delay: -8s;
+}
+
+@keyframes ribbon-drift {
+  0% {
+    transform: translate3d(0, 0, 0) rotate(-10deg) scaleX(1);
+  }
+
+  50% {
+    transform: translate3d(-2.5%, 2%, 0) rotate(-8.5deg) scaleX(1.03);
+  }
+
+  100% {
+    transform: translate3d(2%, -1.5%, 0) rotate(-11.5deg) scaleX(0.99);
+  }
 }
