@@ -9,7 +9,6 @@ import {
   ExternalLink,
 } from 'lucide-react'
 import PageShell from '../layout/PageShell'
-import Footer from '../sections/Footer'
 
 function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
   const [formData, setFormData] = useState({
@@ -63,7 +62,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                   <span className="mt-1 h-[4.8rem] w-[3px] rounded-full bg-[#f4b617]" />
                 </div>
                 <div>
-                  <h1 className="text-[3.6rem] font-bold leading-[0.96] tracking-[-0.065em] text-[#173f88] sm:text-[4.5rem] lg:text-[5.35rem]">
+                  <h1 className="font-manrope-display text-[2.45rem] font-semibold leading-[1] tracking-[-0.024em] text-[#113069] sm:text-[2.8rem] lg:text-[48px]">
                     Contact Us
                   </h1>
                   <p className="mt-7 max-w-[39rem] text-[1.45rem] leading-[1.5] text-[#4b69aa] sm:text-[1.62rem]">
@@ -309,7 +308,6 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
           </div>
         </div>
       </section>
-      <Footer variant="contact" />
     </PageShell>
   )
 }

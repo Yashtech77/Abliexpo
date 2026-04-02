@@ -13,16 +13,18 @@ function HomeHeroSection({ onOpenAuth }) {
             badgeLabel={homeHeroContent.visualBadge}
           />
 
-          <div className="px-2 text-center lg:px-6">
-            <h1 className="font-manrope-display mx-auto max-w-[664px] text-balance text-[2.8rem] font-extrabold leading-[1.36] tracking-[0] text-slate-950 sm:text-[3.5rem] lg:text-[64px]">
-              {homeHeroContent.title}
+          <div className="px-2 text-center lg:px-4 lg:pt-2">
+            <h1 className="font-manrope-display mx-auto max-w-[760px] text-[2.8rem] font-extrabold leading-[1.18] tracking-[-0.04em] text-slate-950 sm:text-[3.5rem] lg:text-[5.25rem]">
+              <span className="block">Bringing The World</span>
+              <span className="mt-2 block">Market To Your</span>
+              <span className="mt-2 block">Screen</span>
             </h1>
 
-            <p className="mx-auto mt-6 max-w-2xl text-lg leading-8 text-slate-600 sm:text-[1.35rem]">
+            <p className="mx-auto mt-10 max-w-[42rem] text-lg leading-[1.25] text-slate-600 sm:text-[1.35rem] lg:text-[1.38rem]">
               {homeHeroContent.subtitle}
             </p>
 
-            <div className="mt-8 flex justify-center">
+            <div className="mt-9 flex justify-center">
               <button
                 type="button"
                 onClick={() => onOpenAuth('register')}
