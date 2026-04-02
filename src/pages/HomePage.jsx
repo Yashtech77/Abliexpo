@@ -1,14 +1,14 @@
 import PageShell from '../layout/PageShell'
 import HomeHeroSection from '../sections/HomeHeroSection'
 
-function HomePage({ currentPage, onNavigate, onOpenAuth }) {
+function HomePage({ currentPage, onNavigate, }) {
   return (
     <PageShell
       currentPage={currentPage}
       onNavigate={onNavigate}
-      onOpenAuth={onOpenAuth}
+      
     >
-      <HomeHeroSection onOpenAuth={onOpenAuth} />
+      <HomeHeroSection  />
     </PageShell>
   )
 }

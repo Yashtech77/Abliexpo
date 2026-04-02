@@ -1,6 +1,6 @@
 import { authActions, navigationItems } from '../data/siteContent'
 
-function Navbar({ currentPage, onNavigate, onOpenAuth, variant = 'light' }) {
+function Navbar({ currentPage, onNavigate, variant = 'light' }) {
   const isLight = variant === 'light'
 
   return (
@@ -62,7 +62,7 @@ function Navbar({ currentPage, onNavigate, onOpenAuth, variant = 'light' }) {
               <button
                 key={label}
                 type="button"
-                onClick={() => onOpenAuth(action)}
+                onClick={() => onNavigate(action)}
                 className={
                   isPrimary
                     ? isLight
@@ -85,7 +85,7 @@ function Navbar({ currentPage, onNavigate, onOpenAuth, variant = 'light' }) {
               <button
                 key={label}
                 type="button"
-                onClick={() => onOpenAuth(action)}
+                onClick={() => onNavigate(action)}
                 className={
                   isPrimary
                     ? isLight
