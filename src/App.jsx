@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import ContactPage from './pages/ContactPage'
 import HomePage from './pages/HomePage'
+import AboutUsPage from './pages/AboutUsPage'
 import LoginPage from "./pages/LoginPage";
 import OtpPage from "./pages/OtpPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -40,6 +41,15 @@ function App() {
         <ContactPage
           currentPage={currentPage}
           onNavigate={setCurrentPage}
+          onOpenAuth={openAuthView}
+        />
+      )}
+
+      {currentPage === "about" && (
+        <AboutUsPage
+          currentPage={currentPage}
+          onNavigate={setCurrentPage}
+          onOpenAuth={openAuthView}
         />
       )}
 
