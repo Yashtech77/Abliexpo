@@ -14,7 +14,11 @@ function HomeHeroSection({ onOpenAuth }) {
   const pausedRef = useRef(false)
   const [isPaused, setIsPaused] = useState(false)
   const gap = 20
-const repeatedCards = [...homeShowcaseCards]  // Remove the duplicate spread
+  const repeatedCards = [
+    ...homeShowcaseCards,
+    ...homeShowcaseCards,
+    ...homeShowcaseCards,
+  ]
 
   useEffect(() => {
     const measuredCard = measureCardRef.current
@@ -48,15 +52,22 @@ const repeatedCards = [...homeShowcaseCards]  // Remove the duplicate spread
       const delta = (time - lastTimeRef.current) / 1000
       lastTimeRef.current = time
       
-      // Continuous circular movement - no boundaries
-      const speed = 30
-      offsetRef.current -= speed * delta
-      
-      itemRefs.current.forEach((node, index) => {
-        if (!node) return
-        const x = index * cardSpanRef.current + offsetRef.current
-        node.style.transform = `translate3d(${x}px,0,0)`
-      })
+      const speed = 52
+      const wrapWidth = setWidthRef.current
+
+      if (!pausedRef.current && wrapWidth > 0) {
+        offsetRef.current -= speed * delta
+
+        if (offsetRef.current <= -wrapWidth) {
+          offsetRef.current += wrapWidth
+        }
+
+        itemRefs.current.forEach((node, index) => {
+          if (!node) return
+          const x = index * cardSpanRef.current + offsetRef.current
+          node.style.transform = `translate3d(${x}px,0,0)`
+        })
+      }
       
       frameId = window.requestAnimationFrame(step)
     }
@@ -90,9 +101,9 @@ const repeatedCards = [...homeShowcaseCards]  // Remove the duplicate spread
             measureCardRef.current = node
           }
         }}
-        className="absolute left-0 top-0 w-[17.5rem] shrink-0 overflow-hidden rounded-[1.6rem] border border-sky-100 bg-white shadow-[0_14px_30px_rgba(15,23,42,0.1)] sm:w-[19rem] xl:w-[20.75rem]"
+        className="absolute left-0 top-0 w-[18.25rem] shrink-0 overflow-hidden rounded-[1.6rem] border border-sky-100 bg-white shadow-[0_14px_30px_rgba(15,23,42,0.1)] transition-transform duration-300 ease-out hover:-translate-y-2 hover:shadow-[0_22px_40px_rgba(15,23,42,0.16)] sm:w-[19.75rem] xl:w-[21.5rem]"
       >
-        <div className={`relative h-56 ${artClassName}`}>
+        <div className={`relative h-[15.25rem] sm:h-[15.75rem] ${artClassName}`}>
           <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(15,23,42,0.18))]" />
           <span
             className={`absolute right-4 top-4 rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white ${
@@ -134,7 +145,7 @@ const repeatedCards = [...homeShowcaseCards]  // Remove the duplicate spread
     ))
 
   return (
-    <section className="relative z-10 px-4 pb-14 pt-3 sm:px-6 lg:px-8 lg:pb-20 lg:pt-4">
+    <section className="relative z-10 px-4 pb-20 pt-6 sm:px-6 sm:pb-24 sm:pt-8 lg:px-8 lg:pb-28 lg:pt-9">
       <div className="mx-auto max-w-[1380px]">
         <div className="grid items-center gap-8 lg:grid-cols-[749px_minmax(0,1fr)] lg:gap-10">
           <HeroMediaPlayer
@@ -165,7 +176,7 @@ const repeatedCards = [...homeShowcaseCards]  // Remove the duplicate spread
           </div>
         </div>
 
-        <div className="mt-10 flex items-center gap-4 text-slate-700">
+        <div className="mt-14 flex items-center gap-4 text-slate-700">
           <div className="h-px w-10 bg-orange-500" />
           <p className="text-sm font-medium tracking-[0.06em]">
             {homeHeroContent.eyebrow}
@@ -177,7 +188,7 @@ const repeatedCards = [...homeShowcaseCards]  // Remove the duplicate spread
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
         >
-          <div className="relative h-[20.6rem]">
+          <div className="relative h-[24.6rem] sm:h-[25.2rem]">
             {renderCards()}
           </div>
         </div>

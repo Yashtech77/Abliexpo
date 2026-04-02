@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { CloseIcon, ExpandIcon, VolumeIcon, VolumeOffIcon } from './Icons'
 
 function VideoFrame({
@@ -73,6 +73,23 @@ function HeroMediaPlayer({ poster, badgeLabel }) {
     [],
   )
 
+  useEffect(() => {
+    if (!isExpanded) {
+      return undefined
+    }
+
+    const previousBodyOverflow = document.body.style.overflow
+    const previousHtmlOverflow = document.documentElement.style.overflow
+
+    document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
+
+    return () => {
+      document.body.style.overflow = previousBodyOverflow
+      document.documentElement.style.overflow = previousHtmlOverflow
+    }
+  }, [isExpanded])
+
   return (
     <>
       <div className="relative mx-auto w-full max-w-[749px] overflow-hidden rounded-[2rem] border border-white/70 bg-[#0d2337] opacity-100 shadow-[0_20px_60px_rgba(56,189,248,0.18)]">
@@ -91,16 +108,22 @@ function HeroMediaPlayer({ poster, badgeLabel }) {
       </div>
 
       {isExpanded ? (
-        <div className="fixed inset-0 z-50 bg-slate-950/72 px-4 py-6 backdrop-blur-md sm:px-8 lg:px-12">
-          <div className="mx-auto flex h-full max-w-[1250px] items-center justify-center">
-            <div className="relative w-full overflow-hidden rounded-[2.4rem] border border-sky-200/50 bg-slate-950 shadow-[0_30px_90px_rgba(2,12,27,0.45)]">
+        <div className="fixed inset-0 z-50 bg-[#eef2fb] px-3 pb-6 pt-[5.6rem] sm:px-6 sm:pb-14 sm:pt-[7.5rem] lg:px-12 lg:pb-16 lg:pt-[6.8rem]">
+          <div className="mx-auto flex h-full max-w-[1480px] items-start justify-center">
+            <div
+              className="relative aspect-[1250/627] overflow-hidden rounded-[1.35rem] border border-[#d6e1f5] bg-[#0d2337] shadow-[0_16px_48px_rgba(34,48,80,0.18)] sm:rounded-[2.2rem]"
+              style={{
+                width: 'min(96vw, calc((100vh - 9.5rem) * 1.9936))',
+                maxHeight: 'calc(100vh - 9.5rem)',
+              }}
+            >
               <VideoFrame
                 poster={poster}
                 videoSrc={videoSrc}
                 isMuted={isMuted}
                 onToggleMute={() => setIsMuted((current) => !current)}
                 onExpand={() => {}}
-                className="aspect-[1250/627] max-h-[80vh]"
+                className="h-full w-full"
                 showExpand={false}
               />
 
@@ -108,7 +131,7 @@ function HeroMediaPlayer({ poster, badgeLabel }) {
                 type="button"
                 aria-label="Close fullscreen video"
                 onClick={() => setIsExpanded(false)}
-                className="absolute right-5 top-5 grid h-12 w-12 place-items-center rounded-2xl bg-slate-950/40 text-white shadow-lg backdrop-blur-md transition hover:bg-slate-950/58"
+                className="absolute right-3 top-3 grid h-[2.9rem] w-[2.9rem] place-items-center rounded-[0.85rem] bg-slate-800/38 text-white shadow-[0_14px_26px_rgba(15,23,42,0.18)] backdrop-blur-md transition hover:bg-slate-800/48 sm:right-6 sm:top-6 sm:h-[3.7rem] sm:w-[3.7rem] sm:rounded-[1rem]"
               >
                 <CloseIcon />
               </button>
