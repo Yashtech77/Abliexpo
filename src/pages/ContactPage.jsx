@@ -42,7 +42,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
       onNavigate={onNavigate}
       onOpenAuth={onOpenAuth}
     >
-      <section className="relative z-10 px-4 pb-14 pt-12 sm:px-6 sm:pb-16 sm:pt-14 lg:px-10 lg:pb-20 lg:pt-18">
+      <section className="relative z-10 px-4 pb-12 pt-11 sm:px-6 sm:pb-14 sm:pt-12 lg:px-10 lg:pb-18 lg:pt-16">
         <div className="mx-auto max-w-[1880px]">
           <nav className="flex items-center gap-2 text-[1.05rem] font-medium text-[#4f6ca8]">
             <button
@@ -55,48 +55,48 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
             <span className="font-semibold text-[#0955e6]">Contact Us</span>
           </nav>
 
-          <div className="mt-10 grid gap-10 xl:grid-cols-[0.95fr_1.25fr] xl:gap-16">
-            <div className="pt-4 lg:pt-6">
+          <div className="mt-9 grid gap-9 xl:grid-cols-[0.95fr_1.22fr] xl:gap-14">
+            <div className="pt-3 lg:pt-5">
               <div className="flex items-start gap-6">
                 <div className="mt-[0.6rem] flex flex-col items-center">
-                  <span className="h-[5.4rem] w-[3px] rounded-full bg-[#165ed8]" />
-                  <span className="mt-1 h-[4.8rem] w-[3px] rounded-full bg-[#f4b617]" />
+                  <span className="h-[4.9rem] w-[3px] rounded-full bg-[#165ed8]" />
+                  <span className="mt-1 h-[4.2rem] w-[3px] rounded-full bg-[#f4b617]" />
                 </div>
                 <div>
-                  <h1 className="text-[3.6rem] font-bold leading-[0.96] tracking-[-0.065em] text-[#173f88] sm:text-[4.5rem] lg:text-[5.35rem]">
+                  <h1 className="font-manrope-display text-[2.45rem] font-semibold leading-[1] tracking-[-0.024em] text-[#113069] sm:text-[2.8rem] lg:text-[48px]">
                     Contact Us
                   </h1>
-                  <p className="mt-7 max-w-[39rem] text-[1.45rem] leading-[1.5] text-[#4b69aa] sm:text-[1.62rem]">
+                  <p className="mt-6 max-w-[35rem] text-[1.22rem] leading-[1.5] text-[#4b69aa] sm:text-[1.38rem]">
                     We're here to help you expand your horizons. Reach
                     <br className="hidden lg:block" /> out to our team for any inquiries.
                   </p>
                 </div>
               </div>
 
-              <div className="mt-16 space-y-12">
-                <div className="flex items-start gap-5">
-                  <div className="flex h-[4.4rem] w-[4.4rem] shrink-0 items-center justify-center rounded-2xl bg-[#dfe5ff] text-[#0b5be8]">
-                    <Phone className="h-7 w-7" strokeWidth={2.1} />
+              <div className="mt-14 space-y-10">
+                <div className="flex items-start gap-4">
+                  <div className="flex h-[4rem] w-[4rem] shrink-0 items-center justify-center rounded-[1.15rem] bg-[#dfe5ff] text-[#0b5be8]">
+                    <Phone className="h-6 w-6" strokeWidth={2.1} />
                   </div>
                   <div className="pt-1">
-                    <p className="text-[1rem] font-bold uppercase tracking-[0.04em] text-[#4363a9]">
+                    <p className="text-[0.94rem] font-bold uppercase tracking-[0.035em] text-[#4363a9]">
                       Phone
                     </p>
-                    <p className="mt-2 text-[1.5rem] font-semibold tracking-[-0.03em] text-[#173f88] sm:text-[1.65rem]">
+                    <p className="mt-2 text-[1.08rem] font-normal tracking-[-0.01em] text-[#173f88] sm:text-[1.18rem]">
                       (+91) 9356002701
                     </p>
                   </div>
                 </div>
 
-                <div className="flex items-start gap-5">
-                  <div className="flex h-[4.4rem] w-[4.4rem] shrink-0 items-center justify-center rounded-2xl bg-[#dfe5ff] text-[#0b5be8]">
-                    <Mail className="h-7 w-7" strokeWidth={2.1} />
+                <div className="flex items-start gap-4">
+                  <div className="flex h-[4rem] w-[4rem] shrink-0 items-center justify-center rounded-[1.15rem] bg-[#dfe5ff] text-[#0b5be8]">
+                    <Mail className="h-6 w-6" strokeWidth={2.1} />
                   </div>
                   <div className="pt-1">
-                    <p className="text-[1rem] font-bold uppercase tracking-[0.04em] text-[#4363a9]">
+                    <p className="text-[0.94rem] font-bold uppercase tracking-[0.035em] text-[#4363a9]">
                       Email
                     </p>
-                    <p className="mt-1 max-w-[18rem] text-[1.52rem] font-semibold leading-[1.15] tracking-[-0.03em] text-[#173f88] sm:text-[1.6rem]">
+                    <p className="mt-1 max-w-[16rem] text-[1.08rem] font-normal leading-[1.15] tracking-[-0.01em] text-[#173f88] sm:text-[1.16rem]">
                       support@Ekspansexpo.
                       <br />
                       com
@@ -104,28 +104,28 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                   </div>
                 </div>
 
-                <div className="flex items-start gap-5">
-                  <div className="flex h-[4.4rem] w-[4.4rem] shrink-0 items-center justify-center rounded-2xl bg-[#dfe5ff] text-[#0b5be8]">
-                    <MapPin className="h-7 w-7" strokeWidth={2.1} />
+                <div className="flex items-start gap-4">
+                  <div className="flex h-[4rem] w-[4rem] shrink-0 items-center justify-center rounded-[1.15rem] bg-[#dfe5ff] text-[#0b5be8]">
+                    <MapPin className="h-6 w-6" strokeWidth={2.1} />
                   </div>
                   <div className="flex-1 pt-1">
-                    <p className="text-[1rem] font-bold uppercase tracking-[0.04em] text-[#4363a9]">
+                    <p className="text-[0.94rem] font-bold uppercase tracking-[0.035em] text-[#4363a9]">
                       Office Locations
                     </p>
                     <div className="mt-3 grid gap-6 sm:grid-cols-2 sm:gap-10">
                       <div>
-                        <p className="text-[1.02rem] font-semibold text-[#173f88]">
+                        <p className="text-[0.88rem] font-normal text-[#173f88]">
                           Head Office
                         </p>
-                        <p className="mt-1 text-[0.98rem] leading-[1.35] text-[#4b69aa] sm:text-[1.1rem]">
+                        <p className="mt-1 text-[0.92rem] leading-[1.35] text-[#4b69aa] sm:text-[1rem]">
                           Pune, India
                         </p>
                       </div>
                       <div>
-                        <p className="text-[1.02rem] font-semibold text-[#173f88]">
+                        <p className="text-[0.88rem] font-normal text-[#173f88]">
                           Regional Offices
                         </p>
-                        <p className="mt-1 max-w-[18rem] text-[0.98rem] leading-[1.45] text-[#4b69aa] sm:text-[1.1rem]">
+                        <p className="mt-1 max-w-[16rem] text-[0.92rem] leading-[1.45] text-[#4b69aa] sm:text-[1rem]">
                           USA, Singapore, Dubai,
                           <br />
                           Ghana, Kenya, Geneva
@@ -136,8 +136,8 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                 </div>
               </div>
 
-              <div className="mt-16 overflow-hidden rounded-[1.3rem] border border-[#e5ebff] bg-[linear-gradient(180deg,#eef4ff,#edf4ff)] shadow-[0_8px_24px_rgba(119,146,196,0.12)]">
-                <div className="relative h-[20rem] overflow-hidden rounded-t-[1.2rem] bg-[linear-gradient(180deg,#edf4ff_0%,#dce8ff_100%)] sm:h-[22rem]">
+              <div className="mt-14 overflow-hidden rounded-[1.2rem] border border-[#e5ebff] bg-[linear-gradient(180deg,#eef4ff,#edf4ff)] shadow-[0_8px_24px_rgba(119,146,196,0.1)]">
+                <div className="relative h-[18rem] overflow-hidden rounded-t-[1.1rem] bg-[linear-gradient(180deg,#edf4ff_0%,#dce8ff_100%)] sm:h-[20rem]">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_48%,rgba(170,220,205,0.82)_0%,rgba(170,220,205,0.42)_24%,rgba(186,212,255,0.18)_56%,transparent_76%)]" />
                   <svg
                     viewBox="0 0 1000 500"
@@ -170,15 +170,15 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                     <circle cx="500" cy="250" r="16" fill="#1a66e8" stroke="#ffffff" strokeWidth="6" />
                   </svg>
                 </div>
-                <div className="flex flex-col gap-3 px-6 py-5 sm:flex-row sm:items-center sm:justify-between sm:px-7">
-                  <p className="text-[1.15rem] font-semibold tracking-[-0.03em] text-[#173f88] sm:text-[1.28rem]">
+                <div className="flex flex-col gap-3 px-6 py-4 sm:flex-row sm:items-center sm:justify-between sm:px-7">
+                  <p className="text-[1.02rem] font-semibold tracking-[-0.03em] text-[#173f88] sm:text-[1.12rem]">
                     Pune, MH, India
                   </p>
                   <a
                     href="https://maps.google.com/?q=Pune,Maharashtra,India"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-[1rem] font-semibold text-[#0e5de5] transition hover:text-[#0b49b4]"
+                    className="inline-flex items-center gap-1.5 text-[0.98rem] font-semibold text-[#0e5de5] transition hover:text-[#0b49b4]"
                   >
                     View on Maps
                     <ExternalLink className="h-4 w-4" strokeWidth={2.2} />
@@ -187,17 +187,17 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
               </div>
             </div>
 
-            <div className="rounded-[1.35rem] border border-[#e2eafe] bg-[linear-gradient(180deg,#ffffff_0%,#fbfdff_100%)] p-6 shadow-[0_10px_30px_rgba(130,158,207,0.12)] sm:p-8 lg:p-12 xl:px-12 xl:py-10">
-              <h2 className="text-[2.55rem] font-bold tracking-[-0.055em] text-[#173f88] sm:text-[3.05rem]">
+            <div className="rounded-[1.2rem] border border-[#e2eafe] bg-[linear-gradient(180deg,#ffffff_0%,#fbfdff_100%)] p-6 shadow-[0_10px_30px_rgba(130,158,207,0.1)] sm:p-8 lg:p-10 xl:px-11 xl:py-9">
+              <h2 className="text-[2.22rem] font-bold tracking-[-0.05em] text-[#173f88] sm:text-[2.65rem]">
                 Let&rsquo;s get in touch!
               </h2>
-              <p className="mt-3 text-[1.18rem] leading-[1.5] text-[#4b69aa] sm:text-[1.28rem]">
+              <p className="mt-3 text-[1.04rem] leading-[1.5] text-[#6a7691] sm:text-[1.12rem]">
                 Fill out the form below and we'll get back to you within 24 hours.
               </p>
 
-              <form onSubmit={handleSubmit} className="mt-12 space-y-8">
+              <form onSubmit={handleSubmit} className="mt-10 space-y-7">
                 <div>
-                  <label className="mb-2 block text-[0.98rem] font-semibold text-[#5b6273]">
+                  <label className="mb-2 block text-[0.92rem] font-semibold text-[#666d7e]">
                     Subject
                   </label>
                   <div className="relative">
@@ -205,7 +205,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      className="h-[4.8rem] w-full appearance-none rounded-[0.6rem] border border-[#d8e1ff] bg-[#dbe4ff] px-5 pr-12 text-[1.14rem] text-[#5d6982] outline-none transition focus:border-[#1b65e8]"
+                      className="h-[4.25rem] w-full appearance-none rounded-[0.55rem] border border-[#e2e8f4] bg-[#edf2f8] px-5 pr-12 text-[1.02rem] text-[#687286] outline-none transition focus:border-[#1b65e8]"
                     >
                       <option>Partnership Inquiry</option>
                       <option>General Inquiry</option>
@@ -218,7 +218,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
 
                 <div className="grid gap-6 md:grid-cols-2">
                   <div>
-                    <label className="mb-2 block text-center text-[0.98rem] font-semibold text-[#36589e] md:text-left">
+                    <label className="mb-2 block text-center text-[0.92rem] font-semibold text-[#4a5e90] md:text-left">
                       First Name
                     </label>
                     <input
@@ -227,13 +227,13 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder="John"
-                      className="h-[4.6rem] w-full rounded-[0.6rem] border border-[#d8e1ff] bg-[#dbe4ff] px-5 text-[1.14rem] text-[#5d6982] placeholder:text-[#6f7788] outline-none transition focus:border-[#1b65e8]"
+                      className="h-[4.15rem] w-full rounded-[0.55rem] border border-[#e2e8f4] bg-[#edf2f8] px-5 text-[1rem] text-[#687286] placeholder:text-[#7a8292] outline-none transition focus:border-[#1b65e8]"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-center text-[0.98rem] font-semibold text-[#36589e] md:text-left">
+                    <label className="mb-2 block text-center text-[0.92rem] font-semibold text-[#4a5e90] md:text-left">
                       Last Name
                     </label>
                     <input
@@ -242,7 +242,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                       value={formData.lastName}
                       onChange={handleInputChange}
                       placeholder="Doe"
-                      className="h-[4.6rem] w-full rounded-[0.6rem] border border-[#d8e1ff] bg-[#dbe4ff] px-5 text-[1.14rem] text-[#5d6982] placeholder:text-[#6f7788] outline-none transition focus:border-[#1b65e8]"
+                      className="h-[4.15rem] w-full rounded-[0.55rem] border border-[#e2e8f4] bg-[#edf2f8] px-5 text-[1rem] text-[#687286] placeholder:text-[#7a8292] outline-none transition focus:border-[#1b65e8]"
                       required
                     />
                   </div>
@@ -250,7 +250,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
 
                 <div className="grid gap-6 md:grid-cols-2">
                   <div>
-                    <label className="mb-2 block text-center text-[0.98rem] font-semibold text-[#36589e] md:text-left">
+                    <label className="mb-2 block text-center text-[0.92rem] font-semibold text-[#4a5e90] md:text-left">
                       Mobile
                     </label>
                     <input
@@ -259,13 +259,13 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                       value={formData.mobile}
                       onChange={handleInputChange}
                       placeholder="+91 00000 00000"
-                      className="h-[4.6rem] w-full rounded-[0.6rem] border border-[#d8e1ff] bg-[#dbe4ff] px-5 text-[1.14rem] text-[#5d6982] placeholder:text-[#6f7788] outline-none transition focus:border-[#1b65e8]"
+                      className="h-[4.15rem] w-full rounded-[0.55rem] border border-[#e2e8f4] bg-[#edf2f8] px-5 text-[1rem] text-[#687286] placeholder:text-[#7a8292] outline-none transition focus:border-[#1b65e8]"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="mb-2 block text-center text-[0.98rem] font-semibold text-[#36589e] md:text-left">
+                    <label className="mb-2 block text-center text-[0.92rem] font-semibold text-[#4a5e90] md:text-left">
                       Email
                     </label>
                     <input
@@ -274,14 +274,14 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder="john@example.com"
-                      className="h-[4.6rem] w-full rounded-[0.6rem] border border-[#d8e1ff] bg-[#dbe4ff] px-5 text-[1.14rem] text-[#5d6982] placeholder:text-[#6f7788] outline-none transition focus:border-[#1b65e8]"
+                      className="h-[4.15rem] w-full rounded-[0.55rem] border border-[#e2e8f4] bg-[#edf2f8] px-5 text-[1rem] text-[#687286] placeholder:text-[#7a8292] outline-none transition focus:border-[#1b65e8]"
                       required
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="mb-2 block text-[0.98rem] font-semibold text-[#36589e]">
+                  <label className="mb-2 block text-[0.92rem] font-semibold text-[#4a5e90]">
                     Message
                   </label>
                   <textarea
@@ -290,7 +290,7 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                     onChange={handleInputChange}
                     placeholder="Tell us how we can help..."
                     rows={6}
-                    className="min-h-[12.8rem] w-full resize-none rounded-[0.6rem] border border-[#d8e1ff] bg-[#dbe4ff] px-5 py-5 text-[1.14rem] text-[#5d6982] placeholder:text-[#6f7788] outline-none transition focus:border-[#1b65e8]"
+                    className="min-h-[11.8rem] w-full resize-none rounded-[0.55rem] border border-[#e2e8f4] bg-[#edf2f8] px-5 py-4 text-[1rem] text-[#687286] placeholder:text-[#7a8292] outline-none transition focus:border-[#1b65e8]"
                     required
                   />
                 </div>
@@ -298,10 +298,10 @@ function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
                 <div className="pt-1">
                   <button
                     type="submit"
-                    className="inline-flex h-[5.5rem] w-full items-center justify-center gap-3 rounded-[1rem] bg-[linear-gradient(180deg,#1062e8_0%,#0d57d9_100%)] px-8 text-[1.2rem] font-semibold text-white shadow-[0_10px_24px_rgba(16,98,232,0.26)] transition hover:brightness-[1.03]"
+                    className="inline-flex h-[4.9rem] w-full items-center justify-center gap-3 rounded-[0.9rem] bg-[linear-gradient(180deg,#1062e8_0%,#0d57d9_100%)] px-8 text-[1.08rem] font-semibold text-white shadow-[0_10px_24px_rgba(16,98,232,0.22)] transition hover:brightness-[1.03]"
                   >
                     Send Message
-                    <SendHorizontal className="h-6 w-6" strokeWidth={2.2} />
+                    <SendHorizontal className="h-5 w-5" strokeWidth={2.2} />
                   </button>
                 </div>
               </form>
