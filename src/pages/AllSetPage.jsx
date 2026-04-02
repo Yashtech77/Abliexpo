@@ -83,10 +83,6 @@ export default function AllSetPage({ onNavigate }) {
                   ))}
                 </div>
               </div>
-<button onClick={() => onNavigate("register")}
-            className="h-[56px] w-full rounded-[12px] bg-gradient-to-r from-[#0053DB] to-[#0048C1] text-[16px] font-bold text-[#F8F7FF] shadow-[0px_4px_6px_-1px_rgba(0,0,0,0.1)] active:scale-[0.98] transition-transform">
-              Continue
-            </button>
 
             </div>
 
@@ -115,10 +111,10 @@ export default function AllSetPage({ onNavigate }) {
           </button>
 
           <button
-            onClick={() => onNavigate("home")}
+            onClick={() => onNavigate("register")}
             className="h-[44px] px-6 rounded-[10px] bg-[#0053DB] text-white text-[14px] font-semibold flex items-center gap-2 hover:bg-[#0041b3]"
           >
-            Finish
+          Continue
             <ArrowRight size={16} />
           </button>
 

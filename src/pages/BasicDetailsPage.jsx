@@ -96,7 +96,7 @@ export default function BasicDetailsPage({ onNavigate }) {
 
         <div className="mt-10 w-full flex flex-col sm:flex-row gap-4 p-6 bg-[#F0F4F7] rounded-xl">
           <div className="w-6 h-6 bg-[#0053DB] rounded-full mt-1" />
-          <div>
+          <div> 
             <h4 className="text-lg font-bold text-[#2A3439]">
               Can I change this later?
             </h4>

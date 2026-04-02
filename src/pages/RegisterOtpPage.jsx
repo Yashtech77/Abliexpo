@@ -1,5 +1,5 @@
 import { useRef } from "react";
-
+import { Clock , HelpCircle} from "lucide-react";
 function RegisterOtpPage({ onNavigate }) {
   const inputsRef = useRef([]);
 
@@ -16,8 +16,9 @@ function RegisterOtpPage({ onNavigate }) {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F5F7FB]">
-      <div className="w-[480px] max-w-[480px] h-[560.5px] flex flex-col items-center justify-center gap-[40px] p-[40px] bg-white rounded-2xl shadow-sm">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-[#F5F7FB]">
+      
+      <div className="w-[480px] max-w-[480px] h-[520px] bg-white rounded-2xl shadow-sm px-[40px] py-[36px] flex flex-col items-center justify-center gap-[32px]">
         
         <div className="text-center">
           <h2 className="text-[24px] font-semibold text-[#1A1A1A]">
@@ -29,7 +30,7 @@ function RegisterOtpPage({ onNavigate }) {
           </p>
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-[12px]">
           {[...Array(6)].map((_, index) => (
             <input
               key={index}
@@ -37,7 +38,7 @@ function RegisterOtpPage({ onNavigate }) {
               ref={(el) => (inputsRef.current[index] = el)}
               onChange={(e) => handleChange(e, index)}
               onKeyDown={(e) => handleKeyDown(e, index)}
-              className="w-[48px] h-[56px] border border-gray-300 rounded-lg text-center text-lg focus:outline-none focus:border-[#0053DB]"
+              className="w-[48px] h-[56px] border border-[#E5E7EB] rounded-lg text-center text-lg focus:outline-none focus:border-[#0053DB]"
             />
           ))}
         </div>
@@ -56,16 +57,25 @@ function RegisterOtpPage({ onNavigate }) {
               Resend Code
             </span>
           </p>
-          <p className="mt-3 text-[12px] text-gray-400">
-            Expires in 01:54
-          </p>
+          <div className="mt-3 flex justify-center">
+  <div className="w-[168px] h-[32px] bg-[#E1E9EE] rounded-full flex items-center justify-center px-[16px] py-[8px] gap-2">
+    <Clock size={14} className="text-[#4B5563]" />
+    <span className="text-[12px] text-[#4B5563]">
+      Expires in 01:54
+    </span>
+  </div>
+</div>
         </div>
 
-        <p className="text-[12px] text-gray-400 text-center">
-          Having trouble? Contact Support
-        </p>
-
       </div>
+      <p className="mt-4 flex items-center justify-center gap-2 text-[12px] text-gray-400">
+  <HelpCircle size={14} className="text-gray-400" />
+  <span>
+    Having trouble?{" "}Contact Support
+   
+  </span>
+</p>
+
     </div>
   );
 }
