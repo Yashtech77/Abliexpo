@@ -14,6 +14,15 @@ function ContactBackground({ children }) {
   )
 }
 
+function PlainBackground({ children }) {
+  return (
+    <main className="relative min-h-screen overflow-hidden bg-[#fcfdff] text-slate-950">
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,#ffffff_0%,#fcfdff_100%)]" />
+      <div className="relative z-10">{children}</div>
+    </main>
+  )
+}
+
 function PageShell({
   background = 'aurora',
   currentPage,
@@ -38,6 +47,10 @@ function PageShell({
 
   if (background === 'about') {
     return <AboutBackground>{content}</AboutBackground>
+  }
+
+  if (background === 'plain') {
+    return <PlainBackground>{content}</PlainBackground>
   }
 
   return <AuroraBackground>{content}</AuroraBackground>

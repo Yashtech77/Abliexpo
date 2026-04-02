@@ -4,6 +4,7 @@ import HomeHeroSection from '../sections/HomeHeroSection'
 function HomePage({ currentPage, onNavigate, }) {
   return (
     <PageShell
+      background="about"
       currentPage={currentPage}
       onNavigate={onNavigate}
       
