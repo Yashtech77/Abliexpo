@@ -75,7 +75,7 @@ function HeroMediaPlayer({ poster, badgeLabel }) {
 
   return (
     <>
-      <div className="relative top-[10.85px] mx-auto w-full max-w-[749px] overflow-hidden rounded-[2rem] border border-white/70 bg-[#0d2337] opacity-100 shadow-[0_20px_60px_rgba(56,189,248,0.18)]">
+      <div className="relative mx-auto w-full max-w-[749px] overflow-hidden rounded-[2rem] border border-white/70 bg-[#0d2337] opacity-100 shadow-[0_20px_60px_rgba(56,189,248,0.18)]">
         <VideoFrame
           poster={poster}
           videoSrc={videoSrc}
