@@ -7,6 +7,7 @@ import {
   BookOpen,
   Feather,
   Car,
+  HelpCircle,
 } from "lucide-react";
 
 const data = [
@@ -93,18 +94,29 @@ export default function BasicDetailsPage({ onNavigate }) {
             );
           })}
         </div>
+<div className="mt-10 w-full flex flex-col sm:flex-row gap-4 p-6 bg-[#F0F4F7] rounded-xl">
+  
+  {/* Left blue dot */}
+  <div className="w-6 h-6  rounded-full mt-1 flex-shrink-0" />
 
-        <div className="mt-10 w-full flex flex-col sm:flex-row gap-4 p-6 bg-[#F0F4F7] rounded-xl">
-          <div className="w-6 h-6 bg-[#0053DB] rounded-full mt-1" />
-          <div> 
-            <h4 className="text-lg font-bold text-[#2A3439]">
-              Can I change this later?
-            </h4>
-            <p className="mt-2 text-sm sm:text-base text-[#505157]">
-              Yes, you can always explore other categories once you enter the virtual expo floor. This selection simply helps us set up your initial dashboard.
-            </p>
-          </div>
-        </div>
+  {/* Content */}
+  <div className="flex flex-col">
+    
+    {/* Heading with icon */}
+    <div className="flex items-center gap-2">
+      <HelpCircle size={18} className="text-[#505157]" />
+      <h4 className="text-lg font-bold text-[#2A3439]">
+        Can I change this later?
+      </h4>
+    </div>
+
+    {/* Description */}
+    <p className="mt-2 text-sm sm:text-base text-[#505157]">
+      Yes, you can always explore other categories once you enter the virtual expo floor. This selection simply helps us set up your initial dashboard.
+    </p>
+
+  </div>
+</div>
 
         
 
