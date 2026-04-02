@@ -1,9 +1,138 @@
+import { useEffect, useRef, useState } from 'react'
 import heroImage from '../assets/hero.png'
 import HeroMediaPlayer from '../components/HeroMediaPlayer'
 import { CalendarIcon, ShareIcon } from '../components/Icons'
 import { homeHeroContent, homeShowcaseCards } from '../data/siteContent'
 
 function HomeHeroSection({ onOpenAuth }) {
+  const measureCardRef = useRef(null)
+  const itemRefs = useRef([])
+  const offsetRef = useRef(0)
+  const cardSpanRef = useRef(0)
+  const setWidthRef = useRef(0)
+  const lastTimeRef = useRef(0)
+  const pausedRef = useRef(false)
+  const [isPaused, setIsPaused] = useState(false)
+  const gap = 20
+const repeatedCards = [...homeShowcaseCards]  // Remove the duplicate spread
+
+  useEffect(() => {
+    const measuredCard = measureCardRef.current
+
+    if (!measuredCard) {
+      return undefined
+    }
+
+    let frameId = 0
+
+    const layoutItems = () => {
+      const cardWidth = measuredCard.offsetWidth
+      cardSpanRef.current = cardWidth + gap
+      setWidthRef.current = cardSpanRef.current * homeShowcaseCards.length
+      offsetRef.current = 0
+
+      itemRefs.current.forEach((node, index) => {
+        if (!node) return
+        const x = index * cardSpanRef.current
+        node.style.transform = `translate3d(${x}px,0,0)`
+      })
+    }
+
+    layoutItems()
+
+    const step = (time) => {
+      if (!lastTimeRef.current) {
+        lastTimeRef.current = time
+      }
+      
+      const delta = (time - lastTimeRef.current) / 1000
+      lastTimeRef.current = time
+      
+      // Continuous circular movement - no boundaries
+      const speed = 30
+      offsetRef.current -= speed * delta
+      
+      itemRefs.current.forEach((node, index) => {
+        if (!node) return
+        const x = index * cardSpanRef.current + offsetRef.current
+        node.style.transform = `translate3d(${x}px,0,0)`
+      })
+      
+      frameId = window.requestAnimationFrame(step)
+    }
+
+    frameId = window.requestAnimationFrame(step)
+
+    const handleResize = () => {
+      lastTimeRef.current = 0
+      layoutItems()
+    }
+
+    window.addEventListener('resize', handleResize)
+
+    return () => {
+      window.cancelAnimationFrame(frameId)
+      window.removeEventListener('resize', handleResize)
+    }
+  }, [])
+
+  useEffect(() => {
+    pausedRef.current = isPaused
+  }, [isPaused])
+
+  const renderCards = () =>
+    repeatedCards.map(({ title, date, category, status, artClassName }, index) => (
+      <article
+        key={`${title}-${category}-${index}`}
+        ref={(node) => {
+          itemRefs.current[index] = node
+          if (index === 0) {
+            measureCardRef.current = node
+          }
+        }}
+        className="absolute left-0 top-0 w-[17.5rem] shrink-0 overflow-hidden rounded-[1.6rem] border border-sky-100 bg-white shadow-[0_14px_30px_rgba(15,23,42,0.1)] sm:w-[19rem] xl:w-[20.75rem]"
+      >
+        <div className={`relative h-56 ${artClassName}`}>
+          <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(15,23,42,0.18))]" />
+          <span
+            className={`absolute right-4 top-4 rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white ${
+              status === 'Live'
+                ? 'bg-lime-500'
+                : status === 'Offline'
+                  ? 'bg-orange-500'
+                  : 'bg-blue-600'
+            }`}
+          >
+            {status}
+          </span>
+        </div>
+
+        <div className="space-y-3 px-5 py-4">
+          <h2 className="text-[1.65rem] font-semibold leading-tight tracking-[-0.04em] text-slate-900">
+            {title}
+          </h2>
+
+          <div className="flex items-center gap-2 text-sm text-slate-600">
+            <CalendarIcon />
+            <span>{date}</span>
+          </div>
+
+          <div className="flex items-center justify-between gap-4">
+            <p className="text-sm font-medium text-slate-500">
+              {category}
+            </p>
+            <button
+              type="button"
+              aria-label={`Share ${title}`}
+              className="text-sky-600 transition hover:text-sky-700"
+            >
+              <ShareIcon />
+            </button>
+          </div>
+        </div>
+      </article>
+    ))
+
   return (
     <section className="relative z-10 px-4 pb-14 pt-3 sm:px-6 lg:px-8 lg:pb-20 lg:pt-4">
       <div className="mx-auto max-w-[1380px]">
@@ -43,54 +172,14 @@ function HomeHeroSection({ onOpenAuth }) {
           </p>
         </div>
 
-        <div className="mt-5 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-          {homeShowcaseCards.map(
-            ({ title, date, category, status, artClassName }) => (
-              <article
-                key={`${title}-${category}`}
-                className="overflow-hidden rounded-[1.6rem] border border-sky-100 bg-white shadow-[0_14px_30px_rgba(15,23,42,0.1)]"
-              >
-                <div className={`relative h-56 ${artClassName}`}>
-                  <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent,rgba(15,23,42,0.18))]" />
-                  <span
-                    className={`absolute right-4 top-4 rounded-full px-3 py-1 text-[0.65rem] font-bold uppercase tracking-[0.14em] text-white ${
-                      status === 'Live'
-                        ? 'bg-lime-500'
-                        : status === 'Offline'
-                          ? 'bg-orange-500'
-                          : 'bg-blue-600'
-                    }`}
-                  >
-                    {status}
-                  </span>
-                </div>
-
-                <div className="space-y-3 px-5 py-4">
-                  <h2 className="text-[1.65rem] font-semibold leading-tight tracking-[-0.04em] text-slate-900">
-                    {title}
-                  </h2>
-
-                  <div className="flex items-center gap-2 text-sm text-slate-600">
-                    <CalendarIcon />
-                    <span>{date}</span>
-                  </div>
-
-                  <div className="flex items-center justify-between gap-4">
-                    <p className="text-sm font-medium text-slate-500">
-                      {category}
-                    </p>
-                    <button
-                      type="button"
-                      aria-label={`Share ${title}`}
-                      className="text-sky-600 transition hover:text-sky-700"
-                    >
-                      <ShareIcon />
-                    </button>
-                  </div>
-                </div>
-              </article>
-            ),
-          )}
+        <div
+          className="mt-5 overflow-hidden"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
+          <div className="relative h-[20.6rem]">
+            {renderCards()}
+          </div>
         </div>
       </div>
     </section>
