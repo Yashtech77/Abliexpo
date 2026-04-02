@@ -1,4 +1,5 @@
 import AuroraBackground from '../components/AuroraBackground'
+import AboutBackground from '../components/AboutBackground'
 import Navbar from '../components/Navbar'
 
 function ContactBackground({ children }) {
@@ -33,6 +34,10 @@ function PageShell({
 
   if (background === 'contact') {
     return <ContactBackground>{content}</ContactBackground>
+  }
+
+  if (background === 'about') {
+    return <AboutBackground>{content}</AboutBackground>
   }
 
   return <AuroraBackground>{content}</AuroraBackground>
