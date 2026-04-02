@@ -7,7 +7,7 @@ function HomeHeroSection({ onOpenAuth }) {
   return (
     <section className="relative z-10 px-4 pb-14 pt-3 sm:px-6 lg:px-8 lg:pb-20 lg:pt-4">
       <div className="mx-auto max-w-[1380px]">
-        <div className="grid items-center gap-8 lg:grid-cols-[749px_minmax(0,1fr)] lg:gap-10">
+        <div className="grid items-start gap-8 lg:grid-cols-[749px_minmax(0,1fr)] lg:gap-10">
           <HeroMediaPlayer
             poster={heroImage}
             badgeLabel={homeHeroContent.visualBadge}
