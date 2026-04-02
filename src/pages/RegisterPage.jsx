@@ -96,17 +96,12 @@ export default function RegisterPage({ onNavigate }) {
         </div>
       </div>
 <div className="fixed bottom-0 left-0 w-full max-w-[1458px] h-[72px] flex justify-end items-center px-6 py-4 text-[12px] text-[#667085] space-x-3">
+ 
   <button
     onClick={() => onNavigate("home")}
-    className="text-[#667085] px-4 py-2 border border-[#667085] rounded-[8px]"
+className="text-[#667085] px-4 py-2 border border-[#667085] rounded-[8px]"
   >
-    Back
-  </button>
-  <button
-    onClick={() => onNavigate("otp")}
-    className="px-5 py-2 bg-[#0053DB] text-white rounded-[8px]"
-  >
-   Register
+Back
   </button>
 </div>
     </div>
