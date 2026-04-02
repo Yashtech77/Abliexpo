@@ -142,14 +142,14 @@ const repeatedCards = [...homeShowcaseCards]  // Remove the duplicate spread
             badgeLabel={homeHeroContent.visualBadge}
           />
 
-          <div className="px-2 text-center lg:px-4 lg:pt-2">
-            <h1 className="font-manrope-display mx-auto max-w-[760px] text-[2.8rem] font-extrabold leading-[1.18] tracking-[-0.04em] text-slate-950 sm:text-[3.5rem] lg:text-[5.25rem]">
-              <span className="block">Bringing The World</span>
-              <span className="mt-2 block">Market To Your</span>
+          <div className="px-2 text-center lg:px-2">
+            <h1 className="font-manrope-display mx-auto max-w-[820px] text-[2.8rem] font-extrabold leading-[1.16] tracking-[-0.045em] text-slate-950 sm:text-[3.5rem] lg:text-[5rem]">
+              <span className="block whitespace-nowrap">Bringing The World</span>
+              <span className="mt-2 block whitespace-nowrap">Market To Your</span>
               <span className="mt-2 block">Screen</span>
             </h1>
 
-            <p className="mx-auto mt-10 max-w-[42rem] text-lg leading-[1.25] text-slate-600 sm:text-[1.35rem] lg:text-[1.38rem]">
+            <p className="mx-auto mt-10 max-w-[34rem] text-lg leading-[1.3] text-slate-600 sm:text-[1.35rem] lg:text-[1.32rem]">
               {homeHeroContent.subtitle}
             </p>
 
