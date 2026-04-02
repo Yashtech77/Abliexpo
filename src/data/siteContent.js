@@ -7,7 +7,7 @@ export const navigationItems = [
 ]
 
 export const authActions = [
-  { label: 'Get Started', action: 'register', isPrimary: true },
+  { label: 'Get Started', action: 'basic', isPrimary: true },
 ]
 
 export const authModalContent = {
