@@ -8,6 +8,7 @@ import BasicDetailsPage from "./pages/BasicDetailsPage";
 import InterestsPage from "./pages/InterestsPage";
 import AllSetPage from "./pages/AllSetPage";
 import RegisterOtpPage from "./pages/RegisterOtpPage";
+
 function App() {
   const [authView, setAuthView] = useState(null)
   const [currentPage, setCurrentPage] = useState('home')
