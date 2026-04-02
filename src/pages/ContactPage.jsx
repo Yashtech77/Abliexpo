@@ -1,120 +1,268 @@
-import { contactPageContent } from '../data/siteContent'
+import { useState } from 'react'
+import { Phone, Mail, MapPin, Send, ChevronRight } from 'lucide-react'
+import Navbar from '../components/Navbar'
 import PageShell from '../layout/PageShell'
 
-function ContactPage({ currentPage, onNavigate, onOpenAuth, isLoggedIn }) {
+function ContactPage({ currentPage, onNavigate, onOpenAuth }) {
+  const [formData, setFormData] = useState({
+    subject: '',
+    firstName: '',
+    lastName: '',
+    mobile: '',
+    email: '',
+    message: ''
+  })
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log('Form submitted:', formData)
+    // Handle form submission here
+  }
+
   return (
     <PageShell
-      background="contact"
+      background="aurora"
       currentPage={currentPage}
       onNavigate={onNavigate}
       onOpenAuth={onOpenAuth}
     >
-      <section className="relative z-10 px-4 py-10 sm:px-6 sm:py-14 lg:px-16 lg:py-16">
-        <div className="mx-auto grid max-w-[1400px] gap-6 sm:gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10">
-          <div className="rounded-[1.75rem] border border-white/10 bg-white/5 p-5 backdrop-blur-md sm:rounded-[2rem] sm:p-8 lg:p-12">
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-[#f4d600] sm:text-sm sm:tracking-[0.35em]">
-              {contactPageContent.eyebrow}
-            </p>
-            <h1 className="mt-4 max-w-xl text-[2.3rem] font-semibold leading-tight tracking-[-0.05em] sm:mt-6 sm:text-5xl lg:text-6xl">
-              {contactPageContent.title}
-            </h1>
-            <p className="mt-4 max-w-2xl text-base leading-7 text-white/78 sm:mt-6 sm:text-xl sm:leading-8">
-              {contactPageContent.description}
-            </p>
+      {/* Breadcrumb */}
+      <div className="relative z-10 px-4 pt-6 sm:px-6 lg:px-8 bg-white border-b border-gray-200">
+        <div className="mx-auto max-w-[1400px]">
+          <nav className="flex items-center space-x-2 text-sm text-gray-500">
+            <button 
+              onClick={() => onNavigate('home')}
+              className="hover:text-gray-700"
+            >
+              Home
+            </button>
+            <ChevronRight className="w-4 h-4" />
+            <span className="text-blue-600 font-medium">Contact Us</span>
+          </nav>
+        </div>
+      </div>
 
-            <div className="mt-8 grid gap-4 md:grid-cols-3">
-              {contactPageContent.details.map(({ label, value }) => (
-                <div
-                  key={label}
-                  className="rounded-[1.35rem] border border-white/10 bg-[#081726]/80 p-4 sm:rounded-[1.5rem] sm:p-5"
-                >
-                  <p className="text-xs uppercase tracking-[0.22em] text-white/45 sm:text-sm sm:tracking-[0.28em]">
-                    {label}
-                  </p>
-                  <p className="mt-2 text-base font-medium text-white sm:mt-3 sm:text-lg">
-                    {value}
-                  </p>
+      {/* Main Content */}
+      <div className="relative z-10 px-4 py-12 sm:px-6 lg:px-16 bg-white min-h-screen">
+        <div className="mx-auto max-w-[1400px]">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            
+            {/* Left Section */}
+            <div className="space-y-8">
+              {/* Header */}
+              <div>
+                <h1 className="text-5xl font-bold text-[#212529] mb-6">
+                  Contact Us
+                </h1>
+                <p className="text-lg text-[#6C757D] leading-relaxed max-w-lg">
+                  Have questions about our virtual exhibition platform? We're here to help you succeed in the digital exhibition space.
+                </p>
+              </div>
+
+              {/* Contact Info Cards */}
+              <div className="space-y-8">
+                {/* Phone Card */}
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0 w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center">
+                    <Phone className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-blue-600 mb-3">PHONE</h3>
+                    <div className="space-y-2">
+                      <p className="text-[#6C757D] text-lg">+91 98765 43210</p>
+                      <p className="text-[#6C757D] text-lg">+1 (555) 123-4567</p>
+                    </div>
+                  </div>
                 </div>
-              ))}
-            </div>
 
-            <div className="mt-8 rounded-[1.5rem] border border-[#f4d600]/20 bg-[#0b1d30]/80 p-5 sm:mt-12 sm:rounded-[1.75rem] sm:p-8">
-              <p className="text-lg font-semibold text-white sm:text-xl">
-                Need quick access?
-              </p>
-              <p className="mt-3 max-w-xl text-sm leading-6 text-white/72 sm:text-base">
-                Create an account to explore events, register for webinars, and
-                manage exhibitor opportunities in one place.
-              </p>
-              <div className="mt-5 flex flex-col gap-3 sm:mt-6 sm:flex-row sm:flex-wrap sm:gap-4">
-                <button
-                  type="button"
-                  onClick={() => onOpenAuth('register')}
-                  className="rounded-full bg-[#f4d600] px-6 py-3 text-sm font-semibold text-[#071522] transition hover:bg-[#ffe75a] sm:px-7"
-                >
-                  Register Now
-                </button>
-                <button
-                  type="button"
-                  onClick={() => onOpenAuth('login')}
-                  className="rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white transition hover:border-[#f4d600] hover:text-[#f4d600] sm:px-7"
-                >
-                  Login
-                </button>
+                {/* Email Card */}
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0 w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center">
+                    <Mail className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-blue-600 mb-3">EMAIL</h3>
+                    <div className="space-y-2">
+                      <p className="text-[#6C757D] text-lg">hello@ekspansexpo.com</p>
+                      <p className="text-[#6C757D] text-lg">support@ekspansexpo.com</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Office Locations Card */}
+                <div className="flex items-start space-x-6">
+                  <div className="flex-shrink-0 w-14 h-14 bg-blue-600 rounded-xl flex items-center justify-center">
+                    <MapPin className="w-7 h-7 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className="text-xl font-semibold text-blue-600 mb-3">OFFICE LOCATIONS</h3>
+                    <div className="space-y-2">
+                      <p className="text-[#6C757D] text-lg">Mumbai, India</p>
+                      <p className="text-[#6C757D] text-lg">New York, USA</p>
+                      <p className="text-[#6C757D] text-lg">London, UK</p>
+                      <p className="text-[#6C757D] text-lg">Dubai, UAE</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Map Section */}
+              <div className="bg-white rounded-2xl border border-gray-200 overflow-hidden shadow-sm">
+                <div className="h-80 bg-gray-100 relative">
+                  <img 
+                    src="https://maps.googleapis.com/maps/api/staticmap?center=Pune,Maharashtra,India&zoom=14&size=800x400&maptype=roadmap&markers=color:red%7CPune,Maharashtra,India&key=AIzaSyBFw0QXqFu32e6h-9GYB9q7t7YhO3yX4ZQ"
+                    alt="Map of Pune, Maharashtra, India"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute bottom-4 left-4 bg-white px-3 py-1 rounded-md shadow-sm">
+                    <span className="text-sm font-medium text-gray-700">Pune, India</span>
+                  </div>
+                  <div className="absolute bottom-4 right-4">
+                    <a 
+                      href="https://maps.google.com/?q=Pune,Maharashtra,India"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="bg-blue-600 text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-blue-700 transition-colors inline-flex items-center"
+                    >
+                      View on Maps
+                      <ChevronRight className="w-4 h-4 ml-1" />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="rounded-[1.75rem] border border-white/10 bg-[linear-gradient(180deg,rgba(255,255,255,0.1),rgba(255,255,255,0.04))] p-5 shadow-[0_30px_80px_rgba(0,0,0,0.28)] backdrop-blur-xl sm:rounded-[2rem] sm:p-8 lg:p-10">
-            <h2 className="text-2xl font-semibold tracking-[-0.04em] text-white sm:text-3xl">
-              Send us a message
-            </h2>
-            <p className="mt-3 text-sm text-white/68 sm:text-base">
-              We usually reply within one business day.
-            </p>
+            {/* Right Section - Contact Form */}
+            <div className="bg-white rounded-2xl border border-gray-200 p-10 shadow-sm">
+              <h2 className="text-3xl font-bold text-[#212529] mb-6">
+                Let's get in touch!
+              </h2>
+              <p className="text-[#6C757D] text-lg mb-10">
+                We're here to help you with your virtual exhibition needs. Fill out the form below and we'll get back to you within 24 hours.
+              </p>
 
-            <form
-              className="mt-6 space-y-4 sm:mt-8 sm:space-y-5"
-              onSubmit={(event) => event.preventDefault()}
-            >
-              {contactPageContent.formFields.map(
-                ({ id, label, type, placeholder }) => (
-                  <label key={id} className="block">
-                    <span className="text-sm font-medium text-white/78">
-                      {label}
-                    </span>
-                    <input
-                      id={id}
-                      type={type}
-                      placeholder={placeholder}
-                      className="mt-2 w-full rounded-xl border border-white/10 bg-[#071522]/80 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[#f4d600] focus:ring-2 focus:ring-[#f4d600]/25 sm:rounded-2xl sm:px-5 sm:py-4"
-                    />
+              <form onSubmit={handleSubmit} className="space-y-8">
+                {/* Subject */}
+                <div>
+                  <label className="block text-base font-medium text-[#212529] mb-3">
+                    Subject *
                   </label>
-                ),
-              )}
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    placeholder="How can we help you?"
+                    className="w-full px-5 py-4 border border-blue-200 bg-blue-50 rounded-xl text-[#212529] placeholder-gray-400 focus:border-[#007BFF] focus:ring-2 focus:ring-[#007BFF] focus:outline-none text-base"
+                    required
+                  />
+                </div>
 
-              <label className="block">
-                <span className="text-sm font-medium text-white/78">
-                  {contactPageContent.messageField.label}
-                </span>
-                <textarea
-                  id={contactPageContent.messageField.id}
-                  rows={6}
-                  placeholder={contactPageContent.messageField.placeholder}
-                  className="mt-2 w-full resize-none rounded-xl border border-white/10 bg-[#071522]/80 px-4 py-3.5 text-white outline-none transition placeholder:text-white/30 focus:border-[#f4d600] focus:ring-2 focus:ring-[#f4d600]/25 sm:rounded-2xl sm:px-5 sm:py-4"
-                />
-              </label>
+                {/* Name Fields */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-base font-medium text-[#212529] mb-3">
+                      First Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      placeholder="John"
+                      className="w-full px-5 py-4 border border-blue-200 bg-blue-50 rounded-xl text-[#212529] placeholder-gray-400 focus:border-[#007BFF] focus:ring-2 focus:ring-[#007BFF] focus:outline-none text-base"
+                      required
+                    />
+                  </div>
 
-              <button
-                type="submit"
-                className="w-full rounded-full bg-[#5b7fcf] px-6 py-3.5 text-sm font-semibold text-white shadow-[0_20px_50px_rgba(53,91,177,0.28)] transition hover:bg-[#6d8fe0] sm:py-4 sm:text-base"
-              >
-                {contactPageContent.submitLabel}
-              </button>
-            </form>
+                  <div>
+                    <label className="block text-base font-medium text-[#212529] mb-3">
+                      Last Name *
+                    </label>
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={formData.lastName}
+                      onChange={handleInputChange}
+                      placeholder="Doe"
+                      className="w-full px-5 py-4 border border-blue-200 bg-blue-50 rounded-xl text-[#212529] placeholder-gray-400 focus:border-[#007BFF] focus:ring-2 focus:ring-[#007BFF] focus:outline-none text-base"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Contact Fields */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-base font-medium text-[#212529] mb-3">
+                      Mobile *
+                    </label>
+                    <input
+                      type="tel"
+                      name="mobile"
+                      value={formData.mobile}
+                      onChange={handleInputChange}
+                      placeholder="+91 98765 43210"
+                      className="w-full px-5 py-4 border border-blue-200 bg-blue-50 rounded-xl text-[#212529] placeholder-gray-400 focus:border-[#007BFF] focus:ring-2 focus:ring-[#007BFF] focus:outline-none text-base"
+                      required
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-base font-medium text-[#212529] mb-3">
+                      Email *
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder="john.doe@example.com"
+                      className="w-full px-5 py-4 border border-blue-200 bg-blue-50 rounded-xl text-[#212529] placeholder-gray-400 focus:border-[#007BFF] focus:ring-2 focus:ring-[#007BFF] focus:outline-none text-base"
+                      required
+                    />
+                  </div>
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="block text-base font-medium text-[#212529] mb-3">
+                    Message *
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    placeholder="Tell us more about your requirements..."
+                    rows={7}
+                    className="w-full px-5 py-4 border border-gray-300 rounded-xl text-[#212529] placeholder-gray-400 focus:border-[#007BFF] focus:ring-2 focus:ring-[#007BFF] focus:outline-none resize-none text-base"
+                    required
+                  />
+                </div>
+
+                {/* Submit Button */}
+                <div className="text-center pt-4">
+                  <button
+                    type="submit"
+                    className="w-full inline-flex items-center justify-center bg-[#007BFF] hover:bg-[#0056B3] text-white font-semibold px-10 py-4 rounded-xl transition-colors duration-200 text-base shadow-sm"
+                  >
+                    <Send className="w-5 h-5 mr-3" />
+                    Send Message
+                  </button>
+                </div>
+              </form>
+            </div>
           </div>
         </div>
-      </section>
+      </div>
     </PageShell>
   )
 }
