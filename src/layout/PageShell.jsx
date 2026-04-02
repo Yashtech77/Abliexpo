@@ -1,6 +1,7 @@
 import AuroraBackground from '../components/AuroraBackground'
 import AboutBackground from '../components/AboutBackground'
 import Navbar from '../components/Navbar'
+import Footer from '../sections/Footer'
 
 function ContactBackground({ children }) {
   return (
@@ -38,6 +39,7 @@ function PageShell({
         variant={background === 'contact' ? 'dark' : 'light'}
       />
       {children}
+      <Footer variant="contact" />
     </>
   )
 
