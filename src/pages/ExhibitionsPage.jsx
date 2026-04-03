@@ -3,7 +3,12 @@ import { Calendar, Share2 } from "lucide-react";
 import PageShell from "../layout/PageShell";
 import { Store } from "lucide-react";
 
-const ExhibitionsPage = ({ currentPage, onNavigate, onOpenAuth, isLoggedIn  }) => {
+const ExhibitionsPage = ({
+  currentPage,
+  onNavigate,
+  onOpenAuth,
+  isLoggedIn,
+}) => {
   const [events, setEvents] = useState([]);
   const [page, setPage] = useState(1);
   const itemsPerPage = 4;
@@ -17,7 +22,8 @@ const ExhibitionsPage = ({ currentPage, onNavigate, onOpenAuth, isLoggedIn  }) =
         title: "Global AI & Robotics Summit 2024",
         date: "OCT 12 - 15, 2024",
         stalls: 124,
-        image: "https://media.licdn.com/dms/image/v2/C4E12AQH_AlY4IxPkvQ/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1536700583866?e=2147483647&v=beta&t=-wSVjQ1r6e90C1Xa3K8R0-5guBveeRjjCltPaqdRXEU",
+        image:
+          "https://cdn.phototourl.com/free/2026-04-03-b95e73fa-0e0d-4001-bc6c-1cb438170187.png",
       },
       {
         id: 2,
@@ -25,7 +31,8 @@ const ExhibitionsPage = ({ currentPage, onNavigate, onOpenAuth, isLoggedIn  }) =
         title: "MedTech Innovation Expo",
         date: "NOV 04 - 06, 2024",
         stalls: 86,
-        image: "https://cdn.renderhub.com/unrealdeveloper/exhibition-booth-stand-3d-model-trade-show-3d-model-11/exhibition-booth-stand-3d-model-trade-show-3d-model-11-06.jpg",
+        image:
+          "https://cdn.phototourl.com/free/2026-04-03-570bf0e3-0431-407c-b1e0-b65cd6a134cd.png",
       },
       {
         id: 3,
@@ -33,7 +40,8 @@ const ExhibitionsPage = ({ currentPage, onNavigate, onOpenAuth, isLoggedIn  }) =
         title: "Green Power Summit",
         date: "DEC 02 - 04, 2024",
         stalls: 210,
-        image: "https://static.vecteezy.com/system/resources/thumbnails/027/078/378/small/solar-energy-revolution-embracing-sustainability-through-solar-panels-for-clean-renewable-power-generative-ai-photo.jpg",
+        image:
+          "https://cdn.phototourl.com/free/2026-04-03-0f5a4863-a754-4bea-9e22-bee1da4dbc2e.png",
       },
       {
         id: 4,
@@ -41,23 +49,26 @@ const ExhibitionsPage = ({ currentPage, onNavigate, onOpenAuth, isLoggedIn  }) =
         title: "Urban Future Design Forum",
         date: "JAN 15 - 18, 2025",
         stalls: 45,
-        image: "https://archello.s3.eu-central-1.amazonaws.com/images/2023/05/12/3333-FP855954-indesign.1683872581.0684.jpg",
+        image:
+          "https://cdn.phototourl.com/free/2026-04-03-79d79842-d3b2-44d4-85f9-7ea4fb41e96a.png",
       },
-       {
+      {
         id: 5,
         category: "DESIGN",
         title: "Urban Future Design Forum",
         date: "JAN 15 - 18, 2025",
         stalls: 45,
-        image: "https://archello.s3.eu-central-1.amazonaws.com/images/2023/05/12/3333-FP855954-indesign.1683872581.0684.jpg",
+        image:
+          "https://cdn.phototourl.com/free/2026-04-03-79d79842-d3b2-44d4-85f9-7ea4fb41e96a.png",
       },
-       {
+      {
         id: 6,
         category: "DESIGN",
         title: "Urban Future Design Forum",
         date: "JAN 15 - 18, 2025",
         stalls: 45,
-        image: "https://archello.s3.eu-central-1.amazonaws.com/images/2023/05/12/3333-FP855954-indesign.1683872581.0684.jpg",
+        image:
+          "https://cdn.phototourl.com/free/2026-04-03-79d79842-d3b2-44d4-85f9-7ea4fb41e96a.png",
       },
     ];
 
@@ -66,28 +77,30 @@ const ExhibitionsPage = ({ currentPage, onNavigate, onOpenAuth, isLoggedIn  }) =
 
   return (
     <PageShell
-      background="about" 
+      background="about"
       currentPage={page}
       onNavigate={onNavigate}
       onOpenAuth={onOpenAuth}
       isLoggedIn={isLoggedIn}
     >
       <div className="relative z-10 w-full min-h-screen">
-      
-        <div className="max-w-[1280px] mx-auto px-4 md:px-8 pt-6 pb-12">
-         
-          <div className="mb-6">
-            <p className="text-sm text-gray-500 mb-2">
-              Exhibitions &gt; Events
-            </p>
+        <div className="max-w-[1440px] mx-auto px-[32px] flex flex-col relative">
+          <div className="pt-[32px] ">
+            <div className="flex items-center gap-[8px] mb-2">
+              <span className="text-sm text-gray-500">Exhibitions</span>
+              <span className="text-[12px] text-gray-400">&gt;</span>
+              <span className="text-sm text-gray-700">Events</span>
+            </div>
 
-            <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-              <p className="text-gray-600 text-sm">
+            <div className="flex justify-between items-end w-full">
+              <p className="text-[16px] text-[#566166]">
                 Discover world-class events across global venues.
               </p>
 
-              <div className="flex items-center gap-2">
-                <span className="text-xs text-gray-600">SORT BY</span>
+              <div className="flex items-center gap-[16px]">
+                <span className="text-[12px] font-bold tracking-[1.2px] text-[#566166]">
+                  SORT BY
+                </span>
                 <select className="text-sm  rounded-md px-4 py-2 bg-gray-100">
                   <option>Newest First</option>
                   <option>Oldest</option>
@@ -96,147 +109,135 @@ const ExhibitionsPage = ({ currentPage, onNavigate, onOpenAuth, isLoggedIn  }) =
             </div>
           </div>
 
-
           <div className="max-w-[1396px] mx-auto mt-8">
-            <div className="flex flex-col lg:flex-row gap-6 lg:gap-[48px]">
-              <div className="flex flex-col gap-6 w-full lg:w-1/2">
-                {events
-                  .slice((page - 1) * itemsPerPage, page * itemsPerPage)
-                  .slice(0, 2)
-                  .map((item) => (
-                    <div
-                      key={item.id}
-                      className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden"
-                    >
-                      <div className="relative">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-[220px] object-cover"
-                        />
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-[40px]">
+              {events
+                .slice((page - 1) * itemsPerPage, page * itemsPerPage)
+                .slice(0, 2)
+                .map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-[16px] shadow-[0_4px_20px_0px_#00000008] overflow-hidden lg:w-[682px] h-[377px]"
+                  >
+                    <div className="relative">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-[224px] object-cover"
+                      />
 
-                        <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
-                          {item.category}
-                        </span>
+                      <span className="absolute top-[16px] left-[16px] bg-blue-600 text-white text-[10px] px-[12px] py-[4px] rounded-full font-bold tracking-[1px]">
+                        {item.category}
+                      </span>
+                    </div>
+
+                    <div className="p-[24px] flex flex-col gap-[12px]">
+                      <div className="flex items-center gap-[8px] w-[634px] h-[16px] text-xs text-gray-500">
+                        <Calendar size={14} className="text-blue-600" />
+                        {item.date}
                       </div>
 
-                      <div className="p-5">
-                        <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-                          <Calendar size={14} className="text-blue-600" />
-                          {item.date}
-                        </div>
+                      <h3 className="font-semibold text-gray-800 w-[634px] h-[36px] pb-[8px] leading-[18px]">
+                        {item.title}
+                      </h3>
 
-                        <h3 className="font-semibold text-gray-800 mb-3">
-                          {item.title}
-                        </h3>
-                        <div className="w-full h-[1px] bg-gray-200 my-3"></div>
-
-                        <div className="flex items-center justify-between text-sm">
-                          <div className="flex items-center gap-4 text-gray-500">
-                            <div className="flex items-center gap-1">
-                              <Store size={14} />
-                              <span>{item.stalls} Stalls</span>
-                            </div>
-                            <Share2
-                              size={16}
-                              className="cursor-pointer text-blue-800"
-                            />
+                      <div className="flex items-center justify-between w-[634px] h-[37px] pt-[16px] border-t border-[#F1F5F9] text-sm">
+                        <div className="flex items-center gap-4 text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <Store size={14} />
+                            <span>{item.stalls} Stalls</span>
                           </div>
-
-                          <button className="text-blue-600 font-medium text-sm">
-                            View Expo →
-                          </button>
+                          <Share2
+                            size={16}
+                            className="cursor-pointer text-blue-800"
+                          />
                         </div>
+
+                        <button className="text-blue-600 font-medium text-sm">
+                          View Expo →
+                        </button>
                       </div>
                     </div>
-                  ))}
-              </div>
+                  </div>
+                ))}
 
-              <div className="flex flex-col gap-6 w-full lg:w-1/2">
-                {events
-                  .slice((page - 1) * itemsPerPage, page * itemsPerPage)
-                  .slice(2, 4)
-                  .map((item) => (
-                    <div
-                      key={item.id}
-                      className="bg-white rounded-[16px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] overflow-hidden"
-                    >
-                      <div className="relative">
-                        <img
-                          src={item.image}
-                          alt={item.title}
-                          className="w-full h-[220px] object-cover"
-                        />
+              {events
+                .slice((page - 1) * itemsPerPage, page * itemsPerPage)
+                .slice(2, 4)
+                .map((item) => (
+                  <div
+                    key={item.id}
+                    className="bg-white rounded-[16px] shadow-[0_4px_20px_0px_#00000008] overflow-hidden lg:w-[682px] h-[377px]"
+                  >
+                    <div className="relative">
+                      <img
+                        src={item.image}
+                        alt={item.title}
+                        className="w-full h-[224px] object-cover"
+                      />
 
-                        <span className="absolute top-3 left-3 bg-blue-600 text-white text-xs px-3 py-1 rounded-full">
-                          {item.category}
-                        </span>
+                      <span className="absolute top-[16px] left-[16px] bg-blue-600 text-white text-[10px] px-[12px] py-[4px] rounded-full font-bold tracking-[1px]">
+                        {item.category}
+                      </span>
+                    </div>
+
+                    <div className="p-[24px] flex flex-col gap-[12px]">
+                      <div className="flex items-center gap-[8px] w-[634px] h-[16px] text-xs text-gray-500">
+                        <Calendar size={14} className="text-blue-600" />
+                        {item.date}
                       </div>
 
-                      <div className="p-5">
-                        <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-                          <Calendar size={14} className="text-blue-600" />
-                          {item.date}
-                        </div>
+                      <h3 className="font-semibold text-gray-800 w-[634px] h-[36px] pb-[8px] leading-[18px]">
+                        {item.title}
+                      </h3>
 
-                        <h3 className="font-semibold text-gray-800 mb-3">
-                          {item.title}
-                        </h3>
-                        <div className="w-full h-[1px] bg-gray-200 my-3"></div>
-
-                        <div className="flex items-center justify-between text-sm">
-                          <div className="flex items-center gap-4 text-gray-500">
-                            <div className="flex items-center gap-1">
-                              <Store size={14} />
-                              <span>{item.stalls} Stalls</span>
-                            </div>
-                            <Share2
-                              size={16}
-                              className="cursor-pointer text-blue-800"
-                            />
+                      <div className="flex items-center justify-between w-[634px] h-[37px] pt-[16px] border-t border-[#F1F5F9] text-sm">
+                        <div className="flex items-center gap-4 text-gray-500">
+                          <div className="flex items-center gap-1">
+                            <Store size={14} />
+                            <span>{item.stalls} Stalls</span>
                           </div>
-
-                          <button className="text-blue-600 font-medium text-sm">
-                            View Expo →
-                          </button>
+                          <Share2 size={15} className="h-[16.6px] w-[15px]" />
                         </div>
+
+                        <button className="text-blue-600 font-medium text-sm">
+                          View Expo →
+                        </button>
                       </div>
                     </div>
-                  ))}
-              </div>
+                  </div>
+                ))}
             </div>
           </div>
 
-          <div className="mt-10 max-w-[1280px] mx-auto px-4 md:px-8 py-4">
-            <div className="flex items-center justify-center gap-3 text-sm">
+          <div className="mt-10 max-w-[1049px] mx-auto w-full px-[32px] pt-[16px] pb-[48px]">
+            <div className="flex items-center justify-center gap-[8px]">
               <button
                 onClick={() => setPage((p) => Math.max(p - 1, 1))}
-                className="px-3 py-1 text-gray-500 hover:text-black bg-white rounded-md"
+                className="w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border border-[#E2E8F0] bg-white text-[#64748B]"
               >
                 &lt;
               </button>
 
-              {Array.from({ length: totalPages }, (_, i) => i + 1)
-                .filter((page) => page <= Math.ceil(events.length / 4)) 
-                .map((page) => (
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                (num) => (
                   <button
-                    key={page}
-                    onClick={() => setPage(page)}
-                    className={`px-3 py-1 rounded-md transition bg-white  ${
-                      page === currentPage
-                        ? "bg-blue-600 text-white"
-                        : "text-gray-600 hover:text-black"
+                    key={num}
+                    onClick={() => setPage(num)}
+                    className={`w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border text-[16px] ${
+                      page === num
+                        ? "bg-blue-600 text-white border-blue-600"
+                        : "bg-white text-[#64748B] border-[#E2E8F0]"
                     }`}
                   >
-                    {page}
+                    {num}
                   </button>
-                ))}
+                ),
+              )}
 
               <button
-                onClick={() =>
-                  setPage((p) => Math.min(p + 1, Math.ceil(events.length / 4)))
-                }
-                className="px-3 py-1 text-gray-500 hover:text-black bg-white rounded-md"
+                onClick={() => setPage((p) => Math.min(p + 1, totalPages))}
+                className="w-[40px] h-[40px] flex items-center justify-center rounded-[8px] border border-[#E2E8F0] bg-white text-[#64748B]"
               >
                 &gt;
               </button>
