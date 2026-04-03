@@ -153,7 +153,7 @@ function HomeHeroSection({ onOpenAuth }) {
             badgeLabel={homeHeroContent.visualBadge}
           />
 
-          <div className="px-2 text-center lg:px-2">
+          <div className="px-2 pt-6 text-center lg:px-2 lg:pt-10">
             <h1 className="font-manrope-display mx-auto max-w-[820px] text-[2.8rem] font-extrabold leading-[1.16] tracking-[-0.045em] text-slate-950 sm:text-[3.5rem] lg:text-[5rem]">
               <span className="block whitespace-nowrap">Bringing The World</span>
               <span className="mt-2 block whitespace-nowrap">Market To Your</span>
@@ -163,16 +163,6 @@ function HomeHeroSection({ onOpenAuth }) {
             <p className="mx-auto mt-10 max-w-[34rem] text-lg leading-[1.3] text-slate-600 sm:text-[1.35rem] lg:text-[1.32rem]">
               {homeHeroContent.subtitle}
             </p>
-
-            <div className="mt-9 flex justify-center">
-              <button
-                type="button"
-                onClick={() => onOpenAuth('register')}
-                className="rounded-full bg-slate-950 px-7 py-3.5 text-base font-semibold text-white shadow-[0_18px_45px_rgba(15,23,42,0.18)] transition hover:bg-slate-800"
-              >
-                {homeHeroContent.ctaLabel}
-              </button>
-            </div>
           </div>
         </div>
 
