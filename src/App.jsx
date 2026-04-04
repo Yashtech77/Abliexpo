@@ -1,7 +1,7 @@
-import { useState } from 'react'
-import ContactPage from './pages/ContactPage'
-import HomePage from './pages/HomePage'
-import AboutUsPage from './pages/AboutUsPage'
+import { useState } from "react";
+import ContactPage from "./pages/ContactPage";
+import HomePage from "./pages/HomePage";
+import AboutUsPage from "./pages/AboutUsPage";
 import LoginPage from "./pages/LoginPage";
 import OtpPage from "./pages/OtpPage";
 import RegisterPage from "./pages/RegisterPage";
@@ -9,24 +9,26 @@ import BasicDetailsPage from "./pages/BasicDetailsPage";
 import InterestsPage from "./pages/InterestsPage";
 import AllSetPage from "./pages/AllSetPage";
 import RegisterOtpPage from "./pages/RegisterOtpPage";
+import ExhibitionsPage from "./pages/ExhibitionsPage";
 
 function App() {
-  const [authView, setAuthView] = useState(null)
-  const [currentPage, setCurrentPage] = useState('home')
+  const [authView, setAuthView] = useState(null);
+  const [currentPage, setCurrentPage] = useState("home");
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const openAuthView = (view) => {
-    setAuthView(view)
-  }
+    setAuthView(view);
+  };
 
   const closeAuthView = () => {
-    setAuthView(null)
-  }
+    setAuthView(null);
+  };
 
   const toggleAuthView = () => {
     setAuthView((currentView) =>
-      currentView === 'login' ? 'register' : 'login',
-    )
-  }
+      currentView === "login" ? "register" : "login",
+    );
+  };
 
   return (
     <>
@@ -34,6 +36,7 @@ function App() {
         <HomePage
           currentPage={currentPage}
           onNavigate={setCurrentPage}
+          isLoggedIn={isLoggedIn}
         />
       )}
 
@@ -53,9 +56,7 @@ function App() {
         />
       )}
 
-      {currentPage === "login" && (
-        <LoginPage onNavigate={setCurrentPage} />
-      )}
+      {currentPage === "login" && <LoginPage onNavigate={setCurrentPage} />}
 
       {currentPage === "register" && (
         <RegisterPage onNavigate={setCurrentPage} />
@@ -65,22 +66,29 @@ function App() {
         <BasicDetailsPage onNavigate={setCurrentPage} />
       )}
 
-      {currentPage === "otp" && (
-        <OtpPage onNavigate={setCurrentPage} />
+      {currentPage === "otp" && <OtpPage onNavigate={setCurrentPage} />}
+
+      {currentPage === "register-otp" && (
+        <RegisterOtpPage
+          onNavigate={setCurrentPage}
+          setIsLoggedIn={setIsLoggedIn}
+        />
       )}
-      
-{currentPage === "register-otp" && (
-  <RegisterOtpPage onNavigate={setCurrentPage} />
-)}
       {currentPage === "interests" && (
         <InterestsPage onNavigate={setCurrentPage} />
       )}
 
-      {currentPage === "allset" && (
-        <AllSetPage onNavigate={setCurrentPage} />
+      {currentPage === "allset" && <AllSetPage onNavigate={setCurrentPage} />}
+      {currentPage === "exhibitions" && (
+        <ExhibitionsPage
+          currentPage={currentPage}
+          onNavigate={setCurrentPage}
+          onOpenAuth={openAuthView}
+          isLoggedIn={isLoggedIn}
+        />
       )}
     </>
   );
 }
 
-export default App
+export default App;

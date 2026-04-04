@@ -29,6 +29,7 @@ function PageShell({
   currentPage,
   onNavigate,
   onOpenAuth,
+  isLoggedIn,
   children,
 }) {
   const content = (
@@ -36,6 +37,7 @@ function PageShell({
       <Navbar
         currentPage={currentPage}
         onNavigate={onNavigate}
+        isLoggedIn={isLoggedIn}
         variant={background === 'contact' ? 'dark' : 'light'}
       />
       {children}

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { Clock , HelpCircle} from "lucide-react";
-function RegisterOtpPage({ onNavigate }) {
+function RegisterOtpPage({ onNavigate, setIsLoggedIn }) {
   const inputsRef = useRef([]);
 
   const handleChange = (e, index) => {
@@ -44,7 +44,10 @@ function RegisterOtpPage({ onNavigate }) {
         </div>
 
         <button
-          onClick={() => onNavigate("home")}
+          onClick={() => {
+  setIsLoggedIn(true)
+  onNavigate("home")
+}}
           className="w-full h-[48px] rounded-lg text-white font-medium bg-[#0053DB]"
         >
           Login →
