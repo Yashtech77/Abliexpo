@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Calendar, Share2 } from "lucide-react";
 import PageShell from "../layout/PageShell";
 import { Store } from "lucide-react";
+import EventDetailsPage from "./EventDetailsPage";
 
 const ExhibitionsPage = ({
   currentPage,
@@ -13,6 +14,7 @@ const ExhibitionsPage = ({
   const [page, setPage] = useState(1);
   const itemsPerPage = 4;
   const totalPages = Math.ceil(events.length / itemsPerPage);
+  const [selectedEvent, setSelectedEvent] = useState(null);
 
   useEffect(() => {
     const mockData = [
@@ -75,6 +77,16 @@ const ExhibitionsPage = ({
     setEvents(mockData);
   }, []);
 
+  if (selectedEvent) {
+    return (
+      <EventDetailsPage
+        event={selectedEvent}
+        onNavigate={onNavigate}
+        isLoggedIn={isLoggedIn}
+      />
+    );
+  }
+
   return (
     <PageShell
       background="about"
@@ -117,6 +129,7 @@ const ExhibitionsPage = ({
                 .map((item) => (
                   <div
                     key={item.id}
+                    onClick={() => setSelectedEvent(item)}
                     className="bg-white rounded-[16px] shadow-[0_4px_20px_0px_#00000008] overflow-hidden lg:w-[682px] h-[377px]"
                   >
                     <div className="relative">
@@ -167,6 +180,7 @@ const ExhibitionsPage = ({
                 .map((item) => (
                   <div
                     key={item.id}
+                    onClick={() => setSelectedEvent(item)}
                     className="bg-white rounded-[16px] shadow-[0_4px_20px_0px_#00000008] overflow-hidden lg:w-[682px] h-[377px]"
                   >
                     <div className="relative">
